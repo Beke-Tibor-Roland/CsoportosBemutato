@@ -1,0 +1,1568 @@
+{
+  "Abkhazia": {
+    "team_name": "Abkhazia",
+    "total_matches": 1,
+    "total_goals": 0,
+    "average_goals_per_match": 0.0
+  },
+  "Chameria": {
+    "team_name": "Chameria",
+    "total_matches": 3,
+    "total_goals": 5,
+    "average_goals_per_match": 1.67
+  },
+  "Sápmi": {
+    "team_name": "Sápmi",
+    "total_matches": 2,
+    "total_goals": 4,
+    "average_goals_per_match": 2.0
+  },
+  "Székely Land": {
+    "team_name": "Székely Land",
+    "total_matches": 3,
+    "total_goals": 12,
+    "average_goals_per_match": 4.0
+  },
+  "Artsakh": {
+    "team_name": "Artsakh",
+    "total_matches": 1,
+    "total_goals": 2,
+    "average_goals_per_match": 2.0
+  },
+  "Padania": {
+    "team_name": "Padania",
+    "total_matches": 1,
+    "total_goals": 0,
+    "average_goals_per_match": 0.0
+  },
+  "Japan": {
+    "team_name": "Japan",
+    "total_matches": 63,
+    "total_goals": 167,
+    "average_goals_per_match": 2.65
+  },
+  "El Salvador": {
+    "team_name": "El Salvador",
+    "total_matches": 56,
+    "total_goals": 70,
+    "average_goals_per_match": 1.25
+  },
+  "Switzerland": {
+    "team_name": "Switzerland",
+    "total_matches": 63,
+    "total_goals": 107,
+    "average_goals_per_match": 1.7
+  },
+  "England": {
+    "team_name": "England",
+    "total_matches": 70,
+    "total_goals": 169,
+    "average_goals_per_match": 2.41
+  },
+  "Portugal": {
+    "team_name": "Portugal",
+    "total_matches": 69,
+    "total_goals": 169,
+    "average_goals_per_match": 2.45
+  },
+  "Netherlands": {
+    "team_name": "Netherlands",
+    "total_matches": 70,
+    "total_goals": 166,
+    "average_goals_per_match": 2.37
+  },
+  "Western Armenia": {
+    "team_name": "Western Armenia",
+    "total_matches": 1,
+    "total_goals": 0,
+    "average_goals_per_match": 0.0
+  },
+  "South Ossetia": {
+    "team_name": "South Ossetia",
+    "total_matches": 1,
+    "total_goals": 1,
+    "average_goals_per_match": 1.0
+  },
+  "Czech Republic": {
+    "team_name": "Czech Republic",
+    "total_matches": 57,
+    "total_goals": 87,
+    "average_goals_per_match": 1.53
+  },
+  "Montenegro": {
+    "team_name": "Montenegro",
+    "total_matches": 49,
+    "total_goals": 51,
+    "average_goals_per_match": 1.04
+  },
+  "Bulgaria": {
+    "team_name": "Bulgaria",
+    "total_matches": 50,
+    "total_goals": 39,
+    "average_goals_per_match": 0.78
+  },
+  "Kosovo": {
+    "team_name": "Kosovo",
+    "total_matches": 51,
+    "total_goals": 63,
+    "average_goals_per_match": 1.24
+  },
+  "Serbia": {
+    "team_name": "Serbia",
+    "total_matches": 59,
+    "total_goals": 95,
+    "average_goals_per_match": 1.61
+  },
+  "Lithuania": {
+    "team_name": "Lithuania",
+    "total_matches": 56,
+    "total_goals": 38,
+    "average_goals_per_match": 0.68
+  },
+  "Ukraine": {
+    "team_name": "Ukraine",
+    "total_matches": 61,
+    "total_goals": 87,
+    "average_goals_per_match": 1.43
+  },
+  "Luxembourg": {
+    "team_name": "Luxembourg",
+    "total_matches": 48,
+    "total_goals": 44,
+    "average_goals_per_match": 0.92
+  },
+  "Republic of Ireland": {
+    "team_name": "Republic of Ireland",
+    "total_matches": 48,
+    "total_goals": 49,
+    "average_goals_per_match": 1.02
+  },
+  "Gibraltar": {
+    "team_name": "Gibraltar",
+    "total_matches": 48,
+    "total_goals": 20,
+    "average_goals_per_match": 0.42
+  },
+  "Denmark": {
+    "team_name": "Denmark",
+    "total_matches": 65,
+    "total_goals": 126,
+    "average_goals_per_match": 1.94
+  },
+  "Georgia": {
+    "team_name": "Georgia",
+    "total_matches": 55,
+    "total_goals": 75,
+    "average_goals_per_match": 1.36
+  },
+  "Faroe Islands": {
+    "team_name": "Faroe Islands",
+    "total_matches": 53,
+    "total_goals": 43,
+    "average_goals_per_match": 0.81
+  },
+  "Norway": {
+    "team_name": "Norway",
+    "total_matches": 52,
+    "total_goals": 114,
+    "average_goals_per_match": 2.19
+  },
+  "Malta": {
+    "team_name": "Malta",
+    "total_matches": 47,
+    "total_goals": 31,
+    "average_goals_per_match": 0.66
+  },
+  "Romania": {
+    "team_name": "Romania",
+    "total_matches": 58,
+    "total_goals": 92,
+    "average_goals_per_match": 1.59
+  },
+  "Spain": {
+    "team_name": "Spain",
+    "total_matches": 72,
+    "total_goals": 172,
+    "average_goals_per_match": 2.39
+  },
+  "Sweden": {
+    "team_name": "Sweden",
+    "total_matches": 53,
+    "total_goals": 82,
+    "average_goals_per_match": 1.55
+  },
+  "North Macedonia": {
+    "team_name": "North Macedonia",
+    "total_matches": 58,
+    "total_goals": 86,
+    "average_goals_per_match": 1.48
+  },
+  "Austria": {
+    "team_name": "Austria",
+    "total_matches": 62,
+    "total_goals": 117,
+    "average_goals_per_match": 1.89
+  },
+  "Poland": {
+    "team_name": "Poland",
+    "total_matches": 64,
+    "total_goals": 106,
+    "average_goals_per_match": 1.66
+  },
+  "Israel": {
+    "team_name": "Israel",
+    "total_matches": 53,
+    "total_goals": 82,
+    "average_goals_per_match": 1.55
+  },
+  "Latvia": {
+    "team_name": "Latvia",
+    "total_matches": 57,
+    "total_goals": 54,
+    "average_goals_per_match": 0.95
+  },
+  "Slovenia": {
+    "team_name": "Slovenia",
+    "total_matches": 57,
+    "total_goals": 74,
+    "average_goals_per_match": 1.3
+  },
+  "Germany": {
+    "team_name": "Germany",
+    "total_matches": 56,
+    "total_goals": 145,
+    "average_goals_per_match": 2.59
+  },
+  "Estonia": {
+    "team_name": "Estonia",
+    "total_matches": 55,
+    "total_goals": 50,
+    "average_goals_per_match": 0.91
+  },
+  "Belarus": {
+    "team_name": "Belarus",
+    "total_matches": 48,
+    "total_goals": 39,
+    "average_goals_per_match": 0.81
+  },
+  "Northern Ireland": {
+    "team_name": "Northern Ireland",
+    "total_matches": 49,
+    "total_goals": 49,
+    "average_goals_per_match": 1.0
+  },
+  "Azerbaijan": {
+    "team_name": "Azerbaijan",
+    "total_matches": 48,
+    "total_goals": 32,
+    "average_goals_per_match": 0.67
+  },
+  "Slovakia": {
+    "team_name": "Slovakia",
+    "total_matches": 61,
+    "total_goals": 79,
+    "average_goals_per_match": 1.3
+  },
+  "Hungary": {
+    "team_name": "Hungary",
+    "total_matches": 57,
+    "total_goals": 79,
+    "average_goals_per_match": 1.39
+  },
+  "Wales": {
+    "team_name": "Wales",
+    "total_matches": 59,
+    "total_goals": 86,
+    "average_goals_per_match": 1.46
+  },
+  "Iceland": {
+    "team_name": "Iceland",
+    "total_matches": 57,
+    "total_goals": 83,
+    "average_goals_per_match": 1.46
+  },
+  "Turkey": {
+    "team_name": "Turkey",
+    "total_matches": 60,
+    "total_goals": 117,
+    "average_goals_per_match": 1.95
+  },
+  "Albania": {
+    "team_name": "Albania",
+    "total_matches": 52,
+    "total_goals": 63,
+    "average_goals_per_match": 1.21
+  },
+  "Moldova": {
+    "team_name": "Moldova",
+    "total_matches": 51,
+    "total_goals": 37,
+    "average_goals_per_match": 0.73
+  },
+  "Andorra": {
+    "team_name": "Andorra",
+    "total_matches": 53,
+    "total_goals": 25,
+    "average_goals_per_match": 0.47
+  },
+  "France": {
+    "team_name": "France",
+    "total_matches": 70,
+    "total_goals": 149,
+    "average_goals_per_match": 2.13
+  },
+  "Kazakhstan": {
+    "team_name": "Kazakhstan",
+    "total_matches": 54,
+    "total_goals": 55,
+    "average_goals_per_match": 1.02
+  },
+  "San Marino": {
+    "team_name": "San Marino",
+    "total_matches": 47,
+    "total_goals": 12,
+    "average_goals_per_match": 0.26
+  },
+  "Belgium": {
+    "team_name": "Belgium",
+    "total_matches": 65,
+    "total_goals": 160,
+    "average_goals_per_match": 2.46
+  },
+  "Scotland": {
+    "team_name": "Scotland",
+    "total_matches": 60,
+    "total_goals": 88,
+    "average_goals_per_match": 1.47
+  },
+  "Russia": {
+    "team_name": "Russia",
+    "total_matches": 26,
+    "total_goals": 49,
+    "average_goals_per_match": 1.88
+  },
+  "Cyprus": {
+    "team_name": "Cyprus",
+    "total_matches": 53,
+    "total_goals": 39,
+    "average_goals_per_match": 0.74
+  },
+  "Italy": {
+    "team_name": "Italy",
+    "total_matches": 68,
+    "total_goals": 131,
+    "average_goals_per_match": 1.93
+  },
+  "Bosnia and Herzegovina": {
+    "team_name": "Bosnia and Herzegovina",
+    "total_matches": 53,
+    "total_goals": 68,
+    "average_goals_per_match": 1.28
+  },
+  "Liechtenstein": {
+    "team_name": "Liechtenstein",
+    "total_matches": 49,
+    "total_goals": 12,
+    "average_goals_per_match": 0.24
+  },
+  "Finland": {
+    "team_name": "Finland",
+    "total_matches": 55,
+    "total_goals": 67,
+    "average_goals_per_match": 1.22
+  },
+  "Greece": {
+    "team_name": "Greece",
+    "total_matches": 51,
+    "total_goals": 75,
+    "average_goals_per_match": 1.47
+  },
+  "Armenia": {
+    "team_name": "Armenia",
+    "total_matches": 51,
+    "total_goals": 53,
+    "average_goals_per_match": 1.04
+  },
+  "Bangladesh": {
+    "team_name": "Bangladesh",
+    "total_matches": 38,
+    "total_goals": 29,
+    "average_goals_per_match": 0.76
+  },
+  "Laos": {
+    "team_name": "Laos",
+    "total_matches": 23,
+    "total_goals": 17,
+    "average_goals_per_match": 0.74
+  },
+  "Brunei": {
+    "team_name": "Brunei",
+    "total_matches": 20,
+    "total_goals": 19,
+    "average_goals_per_match": 0.95
+  },
+  "Mongolia": {
+    "team_name": "Mongolia",
+    "total_matches": 20,
+    "total_goals": 9,
+    "average_goals_per_match": 0.45
+  },
+  "Guam": {
+    "team_name": "Guam",
+    "total_matches": 17,
+    "total_goals": 14,
+    "average_goals_per_match": 0.82
+  },
+  "Bhutan": {
+    "team_name": "Bhutan",
+    "total_matches": 15,
+    "total_goals": 8,
+    "average_goals_per_match": 0.53
+  },
+  "Pakistan": {
+    "team_name": "Pakistan",
+    "total_matches": 20,
+    "total_goals": 5,
+    "average_goals_per_match": 0.25
+  },
+  "Cambodia": {
+    "team_name": "Cambodia",
+    "total_matches": 32,
+    "total_goals": 35,
+    "average_goals_per_match": 1.09
+  },
+  "Sri Lanka": {
+    "team_name": "Sri Lanka",
+    "total_matches": 31,
+    "total_goals": 26,
+    "average_goals_per_match": 0.84
+  },
+  "Macau": {
+    "team_name": "Macau",
+    "total_matches": 6,
+    "total_goals": 2,
+    "average_goals_per_match": 0.33
+  },
+  "Malaysia": {
+    "team_name": "Malaysia",
+    "total_matches": 44,
+    "total_goals": 78,
+    "average_goals_per_match": 1.77
+  },
+  "Timor-Leste": {
+    "team_name": "Timor-Leste",
+    "total_matches": 22,
+    "total_goals": 15,
+    "average_goals_per_match": 0.68
+  },
+  "Brazil": {
+    "team_name": "Brazil",
+    "total_matches": 59,
+    "total_goals": 104,
+    "average_goals_per_match": 1.76
+  },
+  "Bolivia": {
+    "team_name": "Bolivia",
+    "total_matches": 49,
+    "total_goals": 48,
+    "average_goals_per_match": 0.98
+  },
+  "Venezuela": {
+    "team_name": "Venezuela",
+    "total_matches": 49,
+    "total_goals": 48,
+    "average_goals_per_match": 0.98
+  },
+  "Peru": {
+    "team_name": "Peru",
+    "total_matches": 53,
+    "total_goals": 42,
+    "average_goals_per_match": 0.79
+  },
+  "Argentina": {
+    "team_name": "Argentina",
+    "total_matches": 63,
+    "total_goals": 105,
+    "average_goals_per_match": 1.67
+  },
+  "Colombia": {
+    "team_name": "Colombia",
+    "total_matches": 53,
+    "total_goals": 71,
+    "average_goals_per_match": 1.34
+  },
+  "Canada": {
+    "team_name": "Canada",
+    "total_matches": 65,
+    "total_goals": 142,
+    "average_goals_per_match": 2.18
+  },
+  "Martinique": {
+    "team_name": "Martinique",
+    "total_matches": 31,
+    "total_goals": 31,
+    "average_goals_per_match": 1.0
+  },
+  "Mexico": {
+    "team_name": "Mexico",
+    "total_matches": 64,
+    "total_goals": 105,
+    "average_goals_per_match": 1.64
+  },
+  "Cuba": {
+    "team_name": "Cuba",
+    "total_matches": 36,
+    "total_goals": 41,
+    "average_goals_per_match": 1.14
+  },
+  "Jersey": {
+    "team_name": "Jersey",
+    "total_matches": 15,
+    "total_goals": 48,
+    "average_goals_per_match": 3.2
+  },
+  "Orkney": {
+    "team_name": "Orkney",
+    "total_matches": 11,
+    "total_goals": 19,
+    "average_goals_per_match": 1.73
+  },
+  "Ynys Môn": {
+    "team_name": "Ynys Môn",
+    "total_matches": 11,
+    "total_goals": 23,
+    "average_goals_per_match": 2.09
+  },
+  "Western Isles": {
+    "team_name": "Western Isles",
+    "total_matches": 10,
+    "total_goals": 11,
+    "average_goals_per_match": 1.1
+  },
+  "Alderney": {
+    "team_name": "Alderney",
+    "total_matches": 5,
+    "total_goals": 6,
+    "average_goals_per_match": 1.2
+  },
+  "Hitra": {
+    "team_name": "Hitra",
+    "total_matches": 7,
+    "total_goals": 19,
+    "average_goals_per_match": 2.71
+  },
+  "Saint Helena": {
+    "team_name": "Saint Helena",
+    "total_matches": 7,
+    "total_goals": 4,
+    "average_goals_per_match": 0.57
+  },
+  "Shetland": {
+    "team_name": "Shetland",
+    "total_matches": 11,
+    "total_goals": 24,
+    "average_goals_per_match": 2.18
+  },
+  "Paraguay": {
+    "team_name": "Paraguay",
+    "total_matches": 50,
+    "total_goals": 42,
+    "average_goals_per_match": 0.84
+  },
+  "Qatar": {
+    "team_name": "Qatar",
+    "total_matches": 68,
+    "total_goals": 119,
+    "average_goals_per_match": 1.75
+  },
+  "Uruguay": {
+    "team_name": "Uruguay",
+    "total_matches": 54,
+    "total_goals": 67,
+    "average_goals_per_match": 1.24
+  },
+  "Ecuador": {
+    "team_name": "Ecuador",
+    "total_matches": 52,
+    "total_goals": 57,
+    "average_goals_per_match": 1.1
+  },
+  "Haiti": {
+    "team_name": "Haiti",
+    "total_matches": 43,
+    "total_goals": 105,
+    "average_goals_per_match": 2.44
+  },
+  "Bermuda": {
+    "team_name": "Bermuda",
+    "total_matches": 36,
+    "total_goals": 60,
+    "average_goals_per_match": 1.67
+  },
+  "Costa Rica": {
+    "team_name": "Costa Rica",
+    "total_matches": 60,
+    "total_goals": 91,
+    "average_goals_per_match": 1.52
+  },
+  "Nicaragua": {
+    "team_name": "Nicaragua",
+    "total_matches": 32,
+    "total_goals": 64,
+    "average_goals_per_match": 2.0
+  },
+  "Isle of Man": {
+    "team_name": "Isle of Man",
+    "total_matches": 13,
+    "total_goals": 50,
+    "average_goals_per_match": 3.85
+  },
+  "Guernsey": {
+    "team_name": "Guernsey",
+    "total_matches": 11,
+    "total_goals": 25,
+    "average_goals_per_match": 2.27
+  },
+  "Chile": {
+    "team_name": "Chile",
+    "total_matches": 52,
+    "total_goals": 38,
+    "average_goals_per_match": 0.73
+  },
+  "Curaçao": {
+    "team_name": "Curaçao",
+    "total_matches": 34,
+    "total_goals": 53,
+    "average_goals_per_match": 1.56
+  },
+  "Jamaica": {
+    "team_name": "Jamaica",
+    "total_matches": 64,
+    "total_goals": 100,
+    "average_goals_per_match": 1.56
+  },
+  "Honduras": {
+    "team_name": "Honduras",
+    "total_matches": 56,
+    "total_goals": 80,
+    "average_goals_per_match": 1.43
+  },
+  "Panama": {
+    "team_name": "Panama",
+    "total_matches": 65,
+    "total_goals": 118,
+    "average_goals_per_match": 1.82
+  },
+  "Trinidad and Tobago": {
+    "team_name": "Trinidad and Tobago",
+    "total_matches": 47,
+    "total_goals": 72,
+    "average_goals_per_match": 1.53
+  },
+  "United States": {
+    "team_name": "United States",
+    "total_matches": 64,
+    "total_goals": 128,
+    "average_goals_per_match": 2.0
+  },
+  "Guyana": {
+    "team_name": "Guyana",
+    "total_matches": 41,
+    "total_goals": 78,
+    "average_goals_per_match": 1.9
+  },
+  "Egypt": {
+    "team_name": "Egypt",
+    "total_matches": 69,
+    "total_goals": 102,
+    "average_goals_per_match": 1.48
+  },
+  "Zimbabwe": {
+    "team_name": "Zimbabwe",
+    "total_matches": 40,
+    "total_goals": 31,
+    "average_goals_per_match": 0.78
+  },
+  "DR Congo": {
+    "team_name": "DR Congo",
+    "total_matches": 51,
+    "total_goals": 64,
+    "average_goals_per_match": 1.25
+  },
+  "Uganda": {
+    "team_name": "Uganda",
+    "total_matches": 41,
+    "total_goals": 41,
+    "average_goals_per_match": 1.0
+  },
+  "Nigeria": {
+    "team_name": "Nigeria",
+    "total_matches": 62,
+    "total_goals": 111,
+    "average_goals_per_match": 1.79
+  },
+  "Burundi": {
+    "team_name": "Burundi",
+    "total_matches": 29,
+    "total_goals": 29,
+    "average_goals_per_match": 1.0
+  },
+  "Guinea": {
+    "team_name": "Guinea",
+    "total_matches": 47,
+    "total_goals": 62,
+    "average_goals_per_match": 1.32
+  },
+  "Madagascar": {
+    "team_name": "Madagascar",
+    "total_matches": 45,
+    "total_goals": 49,
+    "average_goals_per_match": 1.09
+  },
+  "Senegal": {
+    "team_name": "Senegal",
+    "total_matches": 72,
+    "total_goals": 124,
+    "average_goals_per_match": 1.72
+  },
+  "Tanzania": {
+    "team_name": "Tanzania",
+    "total_matches": 46,
+    "total_goals": 30,
+    "average_goals_per_match": 0.65
+  },
+  "Algeria": {
+    "team_name": "Algeria",
+    "total_matches": 64,
+    "total_goals": 142,
+    "average_goals_per_match": 2.22
+  },
+  "Kenya": {
+    "team_name": "Kenya",
+    "total_matches": 34,
+    "total_goals": 39,
+    "average_goals_per_match": 1.15
+  },
+  "Morocco": {
+    "team_name": "Morocco",
+    "total_matches": 67,
+    "total_goals": 133,
+    "average_goals_per_match": 1.99
+  },
+  "Namibia": {
+    "team_name": "Namibia",
+    "total_matches": 49,
+    "total_goals": 47,
+    "average_goals_per_match": 0.96
+  },
+  "Ivory Coast": {
+    "team_name": "Ivory Coast",
+    "total_matches": 55,
+    "total_goals": 94,
+    "average_goals_per_match": 1.71
+  },
+  "South Africa": {
+    "team_name": "South Africa",
+    "total_matches": 62,
+    "total_goals": 88,
+    "average_goals_per_match": 1.42
+  },
+  "Tunisia": {
+    "team_name": "Tunisia",
+    "total_matches": 69,
+    "total_goals": 102,
+    "average_goals_per_match": 1.48
+  },
+  "Angola": {
+    "team_name": "Angola",
+    "total_matches": 51,
+    "total_goals": 57,
+    "average_goals_per_match": 1.12
+  },
+  "Mali": {
+    "team_name": "Mali",
+    "total_matches": 52,
+    "total_goals": 75,
+    "average_goals_per_match": 1.44
+  },
+  "Mauritania": {
+    "team_name": "Mauritania",
+    "total_matches": 47,
+    "total_goals": 31,
+    "average_goals_per_match": 0.66
+  },
+  "Cameroon": {
+    "team_name": "Cameroon",
+    "total_matches": 55,
+    "total_goals": 84,
+    "average_goals_per_match": 1.53
+  },
+  "Guinea-Bissau": {
+    "team_name": "Guinea-Bissau",
+    "total_matches": 43,
+    "total_goals": 40,
+    "average_goals_per_match": 0.93
+  },
+  "Ghana": {
+    "team_name": "Ghana",
+    "total_matches": 52,
+    "total_goals": 73,
+    "average_goals_per_match": 1.4
+  },
+  "Benin": {
+    "team_name": "Benin",
+    "total_matches": 41,
+    "total_goals": 37,
+    "average_goals_per_match": 0.9
+  },
+  "India": {
+    "team_name": "India",
+    "total_matches": 44,
+    "total_goals": 45,
+    "average_goals_per_match": 1.02
+  },
+  "Tajikistan": {
+    "team_name": "Tajikistan",
+    "total_matches": 42,
+    "total_goals": 59,
+    "average_goals_per_match": 1.4
+  },
+  "Samoa": {
+    "team_name": "Samoa",
+    "total_matches": 17,
+    "total_goals": 28,
+    "average_goals_per_match": 1.65
+  },
+  "Papua New Guinea": {
+    "team_name": "Papua New Guinea",
+    "total_matches": 31,
+    "total_goals": 53,
+    "average_goals_per_match": 1.71
+  },
+  "American Samoa": {
+    "team_name": "American Samoa",
+    "total_matches": 10,
+    "total_goals": 4,
+    "average_goals_per_match": 0.4
+  },
+  "New Caledonia": {
+    "team_name": "New Caledonia",
+    "total_matches": 22,
+    "total_goals": 59,
+    "average_goals_per_match": 2.68
+  },
+  "Tuvalu": {
+    "team_name": "Tuvalu",
+    "total_matches": 9,
+    "total_goals": 10,
+    "average_goals_per_match": 1.11
+  },
+  "Solomon Islands": {
+    "team_name": "Solomon Islands",
+    "total_matches": 31,
+    "total_goals": 74,
+    "average_goals_per_match": 2.39
+  },
+  "Tahiti": {
+    "team_name": "Tahiti",
+    "total_matches": 20,
+    "total_goals": 39,
+    "average_goals_per_match": 1.95
+  },
+  "Fiji": {
+    "team_name": "Fiji",
+    "total_matches": 35,
+    "total_goals": 76,
+    "average_goals_per_match": 2.17
+  },
+  "Syria": {
+    "team_name": "Syria",
+    "total_matches": 54,
+    "total_goals": 84,
+    "average_goals_per_match": 1.56
+  },
+  "North Korea": {
+    "team_name": "North Korea",
+    "total_matches": 24,
+    "total_goals": 33,
+    "average_goals_per_match": 1.38
+  },
+  "Vanuatu": {
+    "team_name": "Vanuatu",
+    "total_matches": 26,
+    "total_goals": 54,
+    "average_goals_per_match": 2.08
+  },
+  "Tonga": {
+    "team_name": "Tonga",
+    "total_matches": 11,
+    "total_goals": 12,
+    "average_goals_per_match": 1.09
+  },
+  "Mauritius": {
+    "team_name": "Mauritius",
+    "total_matches": 37,
+    "total_goals": 32,
+    "average_goals_per_match": 0.86
+  },
+  "Seychelles": {
+    "team_name": "Seychelles",
+    "total_matches": 32,
+    "total_goals": 14,
+    "average_goals_per_match": 0.44
+  },
+  "Réunion": {
+    "team_name": "Réunion",
+    "total_matches": 9,
+    "total_goals": 13,
+    "average_goals_per_match": 1.44
+  },
+  "Maldives": {
+    "team_name": "Maldives",
+    "total_matches": 32,
+    "total_goals": 27,
+    "average_goals_per_match": 0.84
+  },
+  "Comoros": {
+    "team_name": "Comoros",
+    "total_matches": 53,
+    "total_goals": 53,
+    "average_goals_per_match": 1.0
+  },
+  "Mayotte": {
+    "team_name": "Mayotte",
+    "total_matches": 7,
+    "total_goals": 8,
+    "average_goals_per_match": 1.14
+  },
+  "Iraq": {
+    "team_name": "Iraq",
+    "total_matches": 72,
+    "total_goals": 99,
+    "average_goals_per_match": 1.38
+  },
+  "Lebanon": {
+    "team_name": "Lebanon",
+    "total_matches": 49,
+    "total_goals": 52,
+    "average_goals_per_match": 1.06
+  },
+  "Yemen": {
+    "team_name": "Yemen",
+    "total_matches": 39,
+    "total_goals": 47,
+    "average_goals_per_match": 1.21
+  },
+  "Palestine": {
+    "team_name": "Palestine",
+    "total_matches": 46,
+    "total_goals": 61,
+    "average_goals_per_match": 1.33
+  },
+  "Jordan": {
+    "team_name": "Jordan",
+    "total_matches": 49,
+    "total_goals": 90,
+    "average_goals_per_match": 1.84
+  },
+  "Bahrain": {
+    "team_name": "Bahrain",
+    "total_matches": 57,
+    "total_goals": 72,
+    "average_goals_per_match": 1.26
+  },
+  "Saudi Arabia": {
+    "team_name": "Saudi Arabia",
+    "total_matches": 70,
+    "total_goals": 94,
+    "average_goals_per_match": 1.34
+  },
+  "Kuwait": {
+    "team_name": "Kuwait",
+    "total_matches": 50,
+    "total_goals": 67,
+    "average_goals_per_match": 1.34
+  },
+  "Djibouti": {
+    "team_name": "Djibouti",
+    "total_matches": 28,
+    "total_goals": 21,
+    "average_goals_per_match": 0.75
+  },
+  "Eswatini": {
+    "team_name": "Eswatini",
+    "total_matches": 46,
+    "total_goals": 42,
+    "average_goals_per_match": 0.91
+  },
+  "Eritrea": {
+    "team_name": "Eritrea",
+    "total_matches": 2,
+    "total_goals": 1,
+    "average_goals_per_match": 0.5
+  },
+  "Ethiopia": {
+    "team_name": "Ethiopia",
+    "total_matches": 37,
+    "total_goals": 32,
+    "average_goals_per_match": 0.86
+  },
+  "Lesotho": {
+    "team_name": "Lesotho",
+    "total_matches": 42,
+    "total_goals": 28,
+    "average_goals_per_match": 0.67
+  },
+  "Liberia": {
+    "team_name": "Liberia",
+    "total_matches": 30,
+    "total_goals": 26,
+    "average_goals_per_match": 0.87
+  },
+  "Sierra Leone": {
+    "team_name": "Sierra Leone",
+    "total_matches": 31,
+    "total_goals": 36,
+    "average_goals_per_match": 1.16
+  },
+  "Mozambique": {
+    "team_name": "Mozambique",
+    "total_matches": 53,
+    "total_goals": 54,
+    "average_goals_per_match": 1.02
+  },
+  "São Tomé and Príncipe": {
+    "team_name": "São Tomé and Príncipe",
+    "total_matches": 30,
+    "total_goals": 21,
+    "average_goals_per_match": 0.7
+  },
+  "South Sudan": {
+    "team_name": "South Sudan",
+    "total_matches": 35,
+    "total_goals": 23,
+    "average_goals_per_match": 0.66
+  },
+  "Equatorial Guinea": {
+    "team_name": "Equatorial Guinea",
+    "total_matches": 48,
+    "total_goals": 55,
+    "average_goals_per_match": 1.15
+  },
+  "Grenada": {
+    "team_name": "Grenada",
+    "total_matches": 30,
+    "total_goals": 27,
+    "average_goals_per_match": 0.9
+  },
+  "Saint Kitts and Nevis": {
+    "team_name": "Saint Kitts and Nevis",
+    "total_matches": 37,
+    "total_goals": 46,
+    "average_goals_per_match": 1.24
+  },
+  "French Guiana": {
+    "team_name": "French Guiana",
+    "total_matches": 28,
+    "total_goals": 42,
+    "average_goals_per_match": 1.5
+  },
+  "Belize": {
+    "team_name": "Belize",
+    "total_matches": 33,
+    "total_goals": 40,
+    "average_goals_per_match": 1.21
+  },
+  "Dominica": {
+    "team_name": "Dominica",
+    "total_matches": 28,
+    "total_goals": 29,
+    "average_goals_per_match": 1.04
+  },
+  "Suriname": {
+    "team_name": "Suriname",
+    "total_matches": 35,
+    "total_goals": 64,
+    "average_goals_per_match": 1.83
+  },
+  "United States Virgin Islands": {
+    "team_name": "United States Virgin Islands",
+    "total_matches": 28,
+    "total_goals": 23,
+    "average_goals_per_match": 0.82
+  },
+  "Cayman Islands": {
+    "team_name": "Cayman Islands",
+    "total_matches": 28,
+    "total_goals": 28,
+    "average_goals_per_match": 1.0
+  },
+  "Barbados": {
+    "team_name": "Barbados",
+    "total_matches": 33,
+    "total_goals": 54,
+    "average_goals_per_match": 1.64
+  },
+  "Saint Martin": {
+    "team_name": "Saint Martin",
+    "total_matches": 22,
+    "total_goals": 39,
+    "average_goals_per_match": 1.77
+  },
+  "Guatemala": {
+    "team_name": "Guatemala",
+    "total_matches": 40,
+    "total_goals": 90,
+    "average_goals_per_match": 2.25
+  },
+  "Anguilla": {
+    "team_name": "Anguilla",
+    "total_matches": 26,
+    "total_goals": 10,
+    "average_goals_per_match": 0.38
+  },
+  "Philippines": {
+    "team_name": "Philippines",
+    "total_matches": 40,
+    "total_goals": 63,
+    "average_goals_per_match": 1.57
+  },
+  "Taiwan": {
+    "team_name": "Taiwan",
+    "total_matches": 25,
+    "total_goals": 23,
+    "average_goals_per_match": 0.92
+  },
+  "Nepal": {
+    "team_name": "Nepal",
+    "total_matches": 35,
+    "total_goals": 23,
+    "average_goals_per_match": 0.66
+  },
+  "Hong Kong": {
+    "team_name": "Hong Kong",
+    "total_matches": 40,
+    "total_goals": 48,
+    "average_goals_per_match": 1.2
+  },
+  "Uzbekistan": {
+    "team_name": "Uzbekistan",
+    "total_matches": 40,
+    "total_goals": 80,
+    "average_goals_per_match": 2.0
+  },
+  "Singapore": {
+    "team_name": "Singapore",
+    "total_matches": 40,
+    "total_goals": 53,
+    "average_goals_per_match": 1.32
+  },
+  "Oman": {
+    "team_name": "Oman",
+    "total_matches": 67,
+    "total_goals": 84,
+    "average_goals_per_match": 1.25
+  },
+  "Afghanistan": {
+    "team_name": "Afghanistan",
+    "total_matches": 24,
+    "total_goals": 17,
+    "average_goals_per_match": 0.71
+  },
+  "Myanmar": {
+    "team_name": "Myanmar",
+    "total_matches": 37,
+    "total_goals": 33,
+    "average_goals_per_match": 0.89
+  },
+  "Kyrgyzstan": {
+    "team_name": "Kyrgyzstan",
+    "total_matches": 38,
+    "total_goals": 57,
+    "average_goals_per_match": 1.5
+  },
+  "Thailand": {
+    "team_name": "Thailand",
+    "total_matches": 58,
+    "total_goals": 117,
+    "average_goals_per_match": 2.02
+  },
+  "Vietnam": {
+    "team_name": "Vietnam",
+    "total_matches": 54,
+    "total_goals": 88,
+    "average_goals_per_match": 1.63
+  },
+  "Indonesia": {
+    "team_name": "Indonesia",
+    "total_matches": 55,
+    "total_goals": 89,
+    "average_goals_per_match": 1.62
+  },
+  "Turkmenistan": {
+    "team_name": "Turkmenistan",
+    "total_matches": 24,
+    "total_goals": 29,
+    "average_goals_per_match": 1.21
+  },
+  "Chad": {
+    "team_name": "Chad",
+    "total_matches": 28,
+    "total_goals": 14,
+    "average_goals_per_match": 0.5
+  },
+  "Sudan": {
+    "team_name": "Sudan",
+    "total_matches": 49,
+    "total_goals": 39,
+    "average_goals_per_match": 0.8
+  },
+  "Rwanda": {
+    "team_name": "Rwanda",
+    "total_matches": 34,
+    "total_goals": 25,
+    "average_goals_per_match": 0.74
+  },
+  "Somalia": {
+    "team_name": "Somalia",
+    "total_matches": 18,
+    "total_goals": 9,
+    "average_goals_per_match": 0.5
+  },
+  "Croatia": {
+    "team_name": "Croatia",
+    "total_matches": 69,
+    "total_goals": 125,
+    "average_goals_per_match": 1.81
+  },
+  "Aruba": {
+    "team_name": "Aruba",
+    "total_matches": 28,
+    "total_goals": 37,
+    "average_goals_per_match": 1.32
+  },
+  "Antigua and Barbuda": {
+    "team_name": "Antigua and Barbuda",
+    "total_matches": 33,
+    "total_goals": 32,
+    "average_goals_per_match": 0.97
+  },
+  "Saint Vincent and the Grenadines": {
+    "team_name": "Saint Vincent and the Grenadines",
+    "total_matches": 35,
+    "total_goals": 46,
+    "average_goals_per_match": 1.31
+  },
+  "Bonaire": {
+    "team_name": "Bonaire",
+    "total_matches": 22,
+    "total_goals": 35,
+    "average_goals_per_match": 1.59
+  },
+  "British Virgin Islands": {
+    "team_name": "British Virgin Islands",
+    "total_matches": 26,
+    "total_goals": 25,
+    "average_goals_per_match": 0.96
+  },
+  "Togo": {
+    "team_name": "Togo",
+    "total_matches": 34,
+    "total_goals": 28,
+    "average_goals_per_match": 0.82
+  },
+  "Gambia": {
+    "team_name": "Gambia",
+    "total_matches": 40,
+    "total_goals": 59,
+    "average_goals_per_match": 1.48
+  },
+  "Montserrat": {
+    "team_name": "Montserrat",
+    "total_matches": 30,
+    "total_goals": 34,
+    "average_goals_per_match": 1.13
+  },
+  "Dominican Republic": {
+    "team_name": "Dominican Republic",
+    "total_matches": 35,
+    "total_goals": 71,
+    "average_goals_per_match": 2.03
+  },
+  "Saint Lucia": {
+    "team_name": "Saint Lucia",
+    "total_matches": 27,
+    "total_goals": 32,
+    "average_goals_per_match": 1.19
+  },
+  "Guadeloupe": {
+    "team_name": "Guadeloupe",
+    "total_matches": 37,
+    "total_goals": 77,
+    "average_goals_per_match": 2.08
+  },
+  "Sint Maarten": {
+    "team_name": "Sint Maarten",
+    "total_matches": 25,
+    "total_goals": 42,
+    "average_goals_per_match": 1.68
+  },
+  "Botswana": {
+    "team_name": "Botswana",
+    "total_matches": 44,
+    "total_goals": 34,
+    "average_goals_per_match": 0.77
+  },
+  "Malawi": {
+    "team_name": "Malawi",
+    "total_matches": 50,
+    "total_goals": 42,
+    "average_goals_per_match": 0.84
+  },
+  "Bahamas": {
+    "team_name": "Bahamas",
+    "total_matches": 28,
+    "total_goals": 31,
+    "average_goals_per_match": 1.11
+  },
+  "Puerto Rico": {
+    "team_name": "Puerto Rico",
+    "total_matches": 28,
+    "total_goals": 74,
+    "average_goals_per_match": 2.64
+  },
+  "Turks and Caicos Islands": {
+    "team_name": "Turks and Caicos Islands",
+    "total_matches": 25,
+    "total_goals": 28,
+    "average_goals_per_match": 1.12
+  },
+  "China PR": {
+    "team_name": "China PR",
+    "total_matches": 43,
+    "total_goals": 59,
+    "average_goals_per_match": 1.37
+  },
+  "Australia": {
+    "team_name": "Australia",
+    "total_matches": 48,
+    "total_goals": 102,
+    "average_goals_per_match": 2.12
+  },
+  "Iran": {
+    "team_name": "Iran",
+    "total_matches": 48,
+    "total_goals": 112,
+    "average_goals_per_match": 2.33
+  },
+  "United Arab Emirates": {
+    "team_name": "United Arab Emirates",
+    "total_matches": 61,
+    "total_goals": 92,
+    "average_goals_per_match": 1.51
+  },
+  "South Korea": {
+    "team_name": "South Korea",
+    "total_matches": 49,
+    "total_goals": 101,
+    "average_goals_per_match": 2.06
+  },
+  "Burkina Faso": {
+    "team_name": "Burkina Faso",
+    "total_matches": 51,
+    "total_goals": 81,
+    "average_goals_per_match": 1.59
+  },
+  "Central African Republic": {
+    "team_name": "Central African Republic",
+    "total_matches": 34,
+    "total_goals": 42,
+    "average_goals_per_match": 1.24
+  },
+  "Cape Verde": {
+    "team_name": "Cape Verde",
+    "total_matches": 45,
+    "total_goals": 53,
+    "average_goals_per_match": 1.18
+  },
+  "Congo": {
+    "team_name": "Congo",
+    "total_matches": 27,
+    "total_goals": 21,
+    "average_goals_per_match": 0.78
+  },
+  "Gabon": {
+    "team_name": "Gabon",
+    "total_matches": 40,
+    "total_goals": 55,
+    "average_goals_per_match": 1.38
+  },
+  "Zambia": {
+    "team_name": "Zambia",
+    "total_matches": 47,
+    "total_goals": 60,
+    "average_goals_per_match": 1.28
+  },
+  "Libya": {
+    "team_name": "Libya",
+    "total_matches": 33,
+    "total_goals": 27,
+    "average_goals_per_match": 0.82
+  },
+  "Niger": {
+    "team_name": "Niger",
+    "total_matches": 29,
+    "total_goals": 28,
+    "average_goals_per_match": 0.97
+  },
+  "Cook Islands": {
+    "team_name": "Cook Islands",
+    "total_matches": 8,
+    "total_goals": 4,
+    "average_goals_per_match": 0.5
+  },
+  "New Zealand": {
+    "team_name": "New Zealand",
+    "total_matches": 22,
+    "total_goals": 65,
+    "average_goals_per_match": 2.95
+  },
+  "Yoruba Nation": {
+    "team_name": "Yoruba Nation",
+    "total_matches": 2,
+    "total_goals": 1,
+    "average_goals_per_match": 0.5
+  },
+  "Matabeleland": {
+    "team_name": "Matabeleland",
+    "total_matches": 3,
+    "total_goals": 2,
+    "average_goals_per_match": 0.67
+  },
+  "Biafra": {
+    "team_name": "Biafra",
+    "total_matches": 3,
+    "total_goals": 2,
+    "average_goals_per_match": 0.67
+  },
+  "Mapuche": {
+    "team_name": "Mapuche",
+    "total_matches": 2,
+    "total_goals": 3,
+    "average_goals_per_match": 1.5
+  },
+  "Maule Sur": {
+    "team_name": "Maule Sur",
+    "total_matches": 2,
+    "total_goals": 2,
+    "average_goals_per_match": 1.0
+  },
+  "Aymara": {
+    "team_name": "Aymara",
+    "total_matches": 2,
+    "total_goals": 1,
+    "average_goals_per_match": 0.5
+  },
+  "Ticino": {
+    "team_name": "Ticino",
+    "total_matches": 1,
+    "total_goals": 1,
+    "average_goals_per_match": 1.0
+  },
+  "Raetia": {
+    "team_name": "Raetia",
+    "total_matches": 1,
+    "total_goals": 8,
+    "average_goals_per_match": 8.0
+  },
+  "Two Sicilies": {
+    "team_name": "Two Sicilies",
+    "total_matches": 2,
+    "total_goals": 1,
+    "average_goals_per_match": 0.5
+  },
+  "Åland Islands": {
+    "team_name": "Åland Islands",
+    "total_matches": 4,
+    "total_goals": 2,
+    "average_goals_per_match": 0.5
+  },
+  "Isle of Wight": {
+    "team_name": "Isle of Wight",
+    "total_matches": 4,
+    "total_goals": 7,
+    "average_goals_per_match": 1.75
+  },
+  "Falkland Islands": {
+    "team_name": "Falkland Islands",
+    "total_matches": 4,
+    "total_goals": 3,
+    "average_goals_per_match": 0.75
+  },
+  "Greenland": {
+    "team_name": "Greenland",
+    "total_matches": 3,
+    "total_goals": 5,
+    "average_goals_per_match": 1.67
+  },
+  "Gozo": {
+    "team_name": "Gozo",
+    "total_matches": 7,
+    "total_goals": 7,
+    "average_goals_per_match": 1.0
+  },
+  "Menorca": {
+    "team_name": "Menorca",
+    "total_matches": 4,
+    "total_goals": 6,
+    "average_goals_per_match": 1.5
+  },
+  "Frøya": {
+    "team_name": "Frøya",
+    "total_matches": 7,
+    "total_goals": 7,
+    "average_goals_per_match": 1.0
+  },
+  "Kernow": {
+    "team_name": "Kernow",
+    "total_matches": 1,
+    "total_goals": 2,
+    "average_goals_per_match": 2.0
+  },
+  "Tamil Eelam": {
+    "team_name": "Tamil Eelam",
+    "total_matches": 3,
+    "total_goals": 9,
+    "average_goals_per_match": 3.0
+  },
+  "Hmong": {
+    "team_name": "Hmong",
+    "total_matches": 3,
+    "total_goals": 6,
+    "average_goals_per_match": 2.0
+  },
+  "Tibet": {
+    "team_name": "Tibet",
+    "total_matches": 2,
+    "total_goals": 5,
+    "average_goals_per_match": 2.5
+  },
+  "Northern Mariana Islands": {
+    "team_name": "Northern Mariana Islands",
+    "total_matches": 6,
+    "total_goals": 9,
+    "average_goals_per_match": 1.5
+  },
+  "Zanzibar": {
+    "team_name": "Zanzibar",
+    "total_matches": 4,
+    "total_goals": 4,
+    "average_goals_per_match": 1.0
+  },
+  "Marshall Islands": {
+    "team_name": "Marshall Islands",
+    "total_matches": 2,
+    "total_goals": 2,
+    "average_goals_per_match": 1.0
+  }
+}

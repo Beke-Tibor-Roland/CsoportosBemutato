@@ -1,0 +1,492 @@
+{
+  "updated": "2026-01-21T12:14:50.862852",
+  "total_matches": 27,
+  "matches": [
+    {
+      "date": "2026-01-21 17:45",
+      "status": "⏰ 7h",
+      "league": "Champions League",
+      "home_team": "Galatasaray",
+      "away_team": "Atlético Madrid",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 3.2,
+          "odds_draw": 3.6,
+          "odds_away": 2.05,
+          "margin": 7.81
+        }
+      ],
+      "avg_margin": 7.81,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 17:45",
+      "status": "⏰ 7h",
+      "league": "Champions League",
+      "home_team": "Qarabağ FK",
+      "away_team": "Eintracht Frankfurt",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 3.0,
+          "odds_draw": 3.6,
+          "odds_away": 2.1,
+          "margin": 8.73
+        }
+      ],
+      "avg_margin": 8.73,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Atalanta BC",
+      "away_team": "Athletic Bilbao",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.73,
+          "odds_draw": 3.5,
+          "odds_away": 4.6,
+          "margin": 8.11
+        }
+      ],
+      "avg_margin": 8.11,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Slavia Praha",
+      "away_team": "Barcelona",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 7.0,
+          "odds_draw": 5.5,
+          "odds_away": 1.33,
+          "margin": 7.66
+        }
+      ],
+      "avg_margin": 7.66,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Bayern Munich",
+      "away_team": "Union Saint-Gilloise",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.11,
+          "odds_draw": 9.5,
+          "odds_away": 17.0,
+          "margin": 6.5
+        }
+      ],
+      "avg_margin": 6.5,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Juventus",
+      "away_team": "Benfica",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.75,
+          "odds_draw": 3.4,
+          "odds_away": 4.6,
+          "margin": 8.29
+        }
+      ],
+      "avg_margin": 8.29,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Chelsea",
+      "away_team": "Pafos FC",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.12,
+          "odds_draw": 8.0,
+          "odds_away": 21.0,
+          "margin": 6.55
+        }
+      ],
+      "avg_margin": 6.55,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Marseille",
+      "away_team": "Liverpool",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 3.6,
+          "odds_draw": 3.6,
+          "odds_away": 1.91,
+          "margin": 7.91
+        }
+      ],
+      "avg_margin": 7.91,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-21 20:00",
+      "status": "⏰ 9h",
+      "league": "Champions League",
+      "home_team": "Newcastle United",
+      "away_team": "PSV Eindhoven",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.35,
+          "odds_draw": 5.0,
+          "odds_away": 7.0,
+          "margin": 8.36
+        }
+      ],
+      "avg_margin": 8.36,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "Fenerbahce",
+      "away_team": "Aston Villa",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.5,
+          "odds_draw": 3.3,
+          "odds_away": 2.6,
+          "margin": 8.76
+        }
+      ],
+      "avg_margin": 8.76,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "Bologna",
+      "away_team": "Celtic",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.5,
+          "odds_draw": 4.0,
+          "odds_away": 5.8,
+          "margin": 8.91
+        }
+      ],
+      "avg_margin": 8.91,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "SK Brann",
+      "away_team": "FC Midtjylland",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 3.1,
+          "odds_draw": 3.4,
+          "odds_away": 2.15,
+          "margin": 8.18
+        }
+      ],
+      "avg_margin": 8.18,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "Feyenoord",
+      "away_team": "SK Sturm Graz",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.4,
+          "odds_draw": 4.75,
+          "odds_away": 6.5,
+          "margin": 7.87
+        }
+      ],
+      "avg_margin": 7.87,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "Young Boys",
+      "away_team": "Lyon",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 4.2,
+          "odds_draw": 3.75,
+          "odds_away": 1.75,
+          "margin": 7.62
+        }
+      ],
+      "avg_margin": 7.62,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "SC Freiburg",
+      "away_team": "Maccabi Tel Aviv",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.17,
+          "odds_draw": 7.0,
+          "odds_away": 15.0,
+          "margin": 6.42
+        }
+      ],
+      "avg_margin": 6.42,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "Malmo FF",
+      "away_team": "Red Star Belgrade",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 3.4,
+          "odds_draw": 3.6,
+          "odds_away": 1.95,
+          "margin": 8.47
+        }
+      ],
+      "avg_margin": 8.47,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "PAOK",
+      "away_team": "Real Betis",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.6,
+          "odds_draw": 3.4,
+          "odds_away": 2.5,
+          "margin": 7.87
+        }
+      ],
+      "avg_margin": 7.87,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 17:45",
+      "status": "⏰ 31h",
+      "league": "Europa League",
+      "home_team": "Viktoria Plzeň",
+      "away_team": "Porto",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 3.8,
+          "odds_draw": 3.3,
+          "odds_away": 1.95,
+          "margin": 7.9
+        }
+      ],
+      "avg_margin": 7.9,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "AS Roma",
+      "away_team": "VfB Stuttgart",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.95,
+          "odds_draw": 3.5,
+          "odds_away": 3.5,
+          "margin": 8.42
+        }
+      ],
+      "avg_margin": 8.42,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "Celta Vigo",
+      "away_team": "Lille",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.3,
+          "odds_draw": 3.3,
+          "odds_away": 2.9,
+          "margin": 8.26
+        }
+      ],
+      "avg_margin": 8.26,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "Dinamo Zagreb",
+      "away_team": "FCSB",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.62,
+          "odds_draw": 3.9,
+          "odds_away": 5.0,
+          "margin": 7.37
+        }
+      ],
+      "avg_margin": 7.37,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "Salzburg",
+      "away_team": "FC Basel",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.3,
+          "odds_draw": 3.5,
+          "odds_away": 2.7,
+          "margin": 9.09
+        }
+      ],
+      "avg_margin": 9.09,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "FC Utrecht",
+      "away_team": "KRC Genk",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.62,
+          "odds_draw": 3.3,
+          "odds_away": 2.5,
+          "margin": 8.47
+        }
+      ],
+      "avg_margin": 8.47,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "Ferencváros TC",
+      "away_team": "Panathinaikos FC",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.3,
+          "odds_draw": 3.25,
+          "odds_away": 3.0,
+          "margin": 7.58
+        }
+      ],
+      "avg_margin": 7.58,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "Nice",
+      "away_team": "Go Ahead Eagles",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.8,
+          "odds_draw": 3.75,
+          "odds_away": 3.9,
+          "margin": 7.86
+        }
+      ],
+      "avg_margin": 7.86,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "SC Braga",
+      "away_team": "Nottingham Forest",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 2.62,
+          "odds_draw": 3.3,
+          "odds_away": 2.5,
+          "margin": 8.47
+        }
+      ],
+      "avg_margin": 8.47,
+      "num_bookmakers": 1
+    },
+    {
+      "date": "2026-01-22 20:00",
+      "status": "⏰ 33h",
+      "league": "Europa League",
+      "home_team": "Rangers FC",
+      "away_team": "PFC Ludogorets Razgrad",
+      "bookmakers": [
+        {
+          "bookmaker": "William Hill",
+          "odds_home": 1.91,
+          "odds_draw": 3.5,
+          "odds_away": 3.6,
+          "margin": 8.71
+        }
+      ],
+      "avg_margin": 8.71,
+      "num_bookmakers": 1
+    }
+  ]
+}
