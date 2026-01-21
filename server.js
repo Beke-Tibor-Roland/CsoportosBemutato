@@ -1,5 +1,5 @@
 // Simple Node.js proxy server for Premier League data
-// Fetches real data from premierleague.com
+// Fetches real data from premierleague.com (pulselive API)
 
 const http = require('http');
 const https = require('https');
@@ -7,7 +7,93 @@ const url = require('url');
 
 const PORT = 3000;
 
-const server = http.createServer((req, res) => {
+const PULSE_HOST = 'footballapi.pulselive.com';
+
+// Cache season lookup so we don't hit /compseasons on every request
+let cachedCompSeason = {
+    id: null,
+    label: null,
+    fetchedAtMs: 0
+};
+
+function getLikelyCurrentSeasonLabel(now = new Date()) {
+    // Premier League season label is like "2025/26".
+    // Season typically starts mid-year; if we're in Jan-Jun, use previous year as start.
+    const month = now.getMonth(); // 0-11
+    const startYear = month >= 6 ? now.getFullYear() : now.getFullYear() - 1;
+    const endYearShort = String((startYear + 1) % 100).padStart(2, '0');
+    return `${startYear}/${endYearShort}`;
+}
+
+function httpsGetJson(options) {
+    return new Promise((resolve, reject) => {
+        https
+            .get(options, (apiRes) => {
+                let data = '';
+                apiRes.on('data', (chunk) => {
+                    data += chunk;
+                });
+                apiRes.on('end', () => {
+                    if (!apiRes.statusCode || apiRes.statusCode < 200 || apiRes.statusCode >= 300) {
+                        reject(new Error(`Upstream HTTP ${apiRes.statusCode ?? 'unknown'}: ${data.slice(0, 300)}`));
+                        return;
+                    }
+                    try {
+                        resolve(JSON.parse(data));
+                    } catch (e) {
+                        reject(new Error(`Invalid JSON: ${e.message}`));
+                    }
+                });
+            })
+            .on('error', (error) => reject(error));
+    });
+}
+
+async function resolveCurrentCompSeasonId() {
+    const now = Date.now();
+    const cacheTtlMs = 6 * 60 * 60 * 1000; // 6 hours
+    if (cachedCompSeason.id && now - cachedCompSeason.fetchedAtMs < cacheTtlMs) {
+        return cachedCompSeason.id;
+    }
+
+    const likelyLabel = getLikelyCurrentSeasonLabel();
+
+    const options = {
+        hostname: PULSE_HOST,
+        path: '/football/competitions/1/compseasons?pageSize=50',
+        method: 'GET',
+        headers: {
+            Origin: 'https://www.premierleague.com',
+            Referer: 'https://www.premierleague.com/',
+            Accept: 'application/json',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+    };
+
+    const json = await httpsGetJson(options);
+    const seasons = Array.isArray(json?.content) ? json.content : [];
+    if (seasons.length === 0) {
+        throw new Error('No compSeasons returned from upstream');
+    }
+
+    const byLabel = seasons.find((s) => s?.label === likelyLabel);
+    const picked = byLabel || seasons.find((s) => s?.isCurrent) || seasons[0];
+
+    cachedCompSeason = {
+        id: picked?.id ?? null,
+        label: picked?.label ?? null,
+        fetchedAtMs: now
+    };
+
+    if (!cachedCompSeason.id) {
+        throw new Error('Could not resolve compSeason id');
+    }
+
+    console.log(`🗓️  Using compSeason ${cachedCompSeason.id} (${cachedCompSeason.label ?? 'unknown'})`);
+    return cachedCompSeason.id;
+}
+
+const server = http.createServer(async (req, res) => {
     // Enable CORS for all origins
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -22,55 +108,71 @@ const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
 
+    // Debug: /api/_debug/season - show which compSeason will be used
+    if (parsedUrl.pathname === '/api/_debug/season') {
+        try {
+            const id = await resolveCurrentCompSeasonId();
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(
+                JSON.stringify({
+                    compSeasonId: id,
+                    label: cachedCompSeason.label,
+                    likelyLabel: getLikelyCurrentSeasonLabel(),
+                    cachedAtMs: cachedCompSeason.fetchedAtMs
+                })
+            );
+        } catch (e) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: e.message }));
+        }
+        return;
+    }
+
     // Endpoint: /api/table - Get Premier League table/standings
     if (parsedUrl.pathname === '/api/table') {
-        console.log('📡 Fetching real Premier League table from premierleague.com...');
-        
-        const options = {
-            hostname: 'footballapi.pulselive.com',
-            path: '/football/standings?pageSize=20&compSeasons=719&comps=1&altIds=true',
-            method: 'GET',
-            headers: {
-                'Origin': 'https://www.premierleague.com',
-                'Accept': 'application/json',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            }
-        };
+        console.log('📡 Fetching live Premier League table...');
 
-        https.get(options, (apiRes) => {
-            let data = '';
+        try {
+            const forcedCompSeason = parsedUrl.query.compSeasonId
+                ? Number(parsedUrl.query.compSeasonId)
+                : null;
+            const compSeasonId = forcedCompSeason || (await resolveCurrentCompSeasonId());
 
-            apiRes.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            apiRes.on('end', () => {
-                try {
-                    const jsonData = JSON.parse(data);
-                    const tableData = parseAPIResponse(jsonData);
-                    res.writeHead(200, { 'Content-Type': 'application/json' });
-                    res.end(JSON.stringify(tableData));
-                    console.log('✅ Real table data sent:', tableData.length - 1, 'teams');
-                } catch (error) {
-                    console.error('❌ Parse error:', error.message);
-                    // Fallback to cached data
-                    const fallbackData = getCachedData();
-                    res.writeHead(200, { 'Content-Type': 'application/json' });
-                    res.end(JSON.stringify(fallbackData));
+            const options = {
+                hostname: PULSE_HOST,
+                path: `/football/standings?pageSize=20&compSeasons=${encodeURIComponent(
+                    String(compSeasonId)
+                )}&comps=1&altIds=true`,
+                method: 'GET',
+                headers: {
+                    Origin: 'https://www.premierleague.com',
+                    Referer: 'https://www.premierleague.com/',
+                    Accept: 'application/json',
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
                 }
-            });
-        }).on('error', (error) => {
-            console.error('❌ Fetch Error:', error.message);
-            // Fallback to cached data
+            };
+
+            const jsonData = await httpsGetJson(options);
+            const tableData = parseAPIResponse(jsonData);
+
+            if (!Array.isArray(tableData) || tableData.length <= 1) {
+                throw new Error('Empty table after parsing');
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(tableData));
+            console.log('✅ Live table data sent:', tableData.length - 1, 'teams');
+        } catch (error) {
+            console.error('❌ /api/table error:', error.message);
             const fallbackData = getCachedData();
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(fallbackData));
-        });
-    } 
-    else {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Not found. Use /api/table' }));
+        }
+        return;
     }
+
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Not found. Use /api/table' }));
 });
 
 function parseAPIResponse(jsonData) {
@@ -79,22 +181,26 @@ function parseAPIResponse(jsonData) {
     ];
     
     try {
-        const standings = jsonData.tables[0].entries;
-        
-        standings.forEach(team => {
+        const entries = jsonData?.tables?.[0]?.entries;
+        if (!Array.isArray(entries)) {
+            throw new Error('Missing tables[0].entries');
+        }
+
+        entries.forEach((entry) => {
+            const overall = entry?.overall ?? entry;
             tableData.push([
-                team.position,
-                team.team.name,
-                team.played,
-                team.won,
-                team.drawn,
-                team.lost,
-                team.goalDifference,
-                team.points
+                entry?.position,
+                entry?.team?.name,
+                overall?.played,
+                overall?.won,
+                overall?.drawn,
+                overall?.lost,
+                overall?.goalsDifference ?? overall?.goalDifference,
+                overall?.points
             ]);
         });
-        
-        console.log('✅ Parsed', standings.length, 'teams from API');
+
+        console.log('✅ Parsed', entries.length, 'teams from API');
         return tableData;
     } catch (error) {
         console.error('❌ Error parsing API response:', error.message);
