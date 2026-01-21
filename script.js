@@ -1,3 +1,11 @@
+// ===== CONFIGURATION =====
+// Sportmonks API Configuration
+// To use team statistics from Sportmonks API:
+// 1. Get your API token from https://www.sportmonks.com/
+// 2. Replace 'YOUR_API_TOKEN_HERE' in the loadStandingsData() function with your actual token
+// 3. Season ID 25583 can be changed to any valid season ID from Sportmonks
+// ========================
+
 // Global variables
 let rawData = [];
 let processedData = [];
@@ -352,10 +360,9 @@ function processData() {
         };
     });
     
-    // Populate team selector after processing data
+    // Load team statistics from Sportmonks API
     if (document.getElementById('team-select')) {
-        populateTeamList();
-        initTeamSelector();
+        loadStandingsData();
     }
 }
 
@@ -1766,6 +1773,63 @@ function wrap(text, width) {
 }
 
 // Team Selector Functions
+let standingsData = [];
+
+async function loadStandingsData() {
+    console.log('🔄 Attempting to load Premier League standings...');
+    try {
+        // Use local proxy server to fetch Premier League table
+        const url = `http://localhost:3000/api/table`;
+        
+        console.log('📡 Fetching from proxy:', url);
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log('📦 Received data:', data);
+        
+        // The Premier League API returns an array of team data
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            console.log('⚠️ No table data returned');
+            throw new Error('API data not available');
+        }
+        
+        // Transform the data to our format
+        // The API returns: ["Position", "Team", "Played", "Wins", "Draws", "Losses", "Goal Difference", "Points"]
+        standingsData = data.slice(1).map((team, index) => {
+            // team is an array: [position, name, played, wins, draws, losses, gd, points]
+            return {
+                position: team[0],
+                team_name: team[1],
+                games_played: parseInt(team[2]) || 0,
+                won: parseInt(team[3]) || 0,
+                draw: parseInt(team[4]) || 0,
+                lost: parseInt(team[5]) || 0,
+                goal_difference: parseInt(team[6]) || 0,
+                points: parseInt(team[7]) || 0
+            };
+        });
+        
+        console.log('✅ Premier League table loaded:', standingsData.length, 'teams');
+        
+        if (standingsData.length > 0) {
+            console.log('Sample team:', standingsData[0]);
+        }
+        
+        populateTeamList();
+        initTeamSelector();
+    } catch (error) {
+        // Proxy unavailable or API error - use local data
+        console.log('⚠️ API unavailable:', error.message);
+        console.log('📊 Using local match data for team statistics');
+        populateTeamListFromLocal();
+        initTeamSelector();
+    }
+}
+
 function initTeamSelector() {
     const teamSelect = document.getElementById('team-select');
     
@@ -1788,9 +1852,29 @@ function initTeamSelector() {
 
 function populateTeamList() {
     const teamSelect = document.getElementById('team-select');
+    if (!teamSelect) return;
+
+    // Populate from Premier League API standings data
+    teamSelect.innerHTML = '<option value="">-- Válassz csapatot --</option>';
+    
+    standingsData.forEach((standing, index) => {
+        const option = document.createElement('option');
+        option.value = standing.team_name;
+        option.textContent = `${standing.position}. ${standing.team_name}`;
+        option.dataset.standing = JSON.stringify(standing);
+        teamSelect.appendChild(option);
+    });
+    
+    console.log('✅ Populated dropdown with', standingsData.length, 'teams');
+}
+
+function populateTeamListFromLocal() {
+    const teamSelect = document.getElementById('team-select');
     if (!teamSelect || rawData.length === 0) return;
 
-    // Extract unique teams from rawData
+    console.log('📊 Using local data for team list');
+    
+    // Extract unique teams from rawData (fallback)
     const teamsSet = new Set();
     rawData.forEach(match => {
         if (match.HomeTeam) teamsSet.add(match.HomeTeam);
@@ -1805,15 +1889,120 @@ function populateTeamList() {
         const option = document.createElement('option');
         option.value = team;
         option.textContent = team;
+        option.dataset.isLocal = 'true';
         teamSelect.appendChild(option);
     });
+    
+    console.log('✅ Loaded', allTeams.length, 'teams from local data');
 }
 
-function displayTeamStats(teamName) {
+function displayTeamStats(teamId) {
     const container = document.getElementById('team-stats-display');
     if (!container) return;
 
-    // Calculate team statistics
+    console.log('displayTeamStats called with teamId:', teamId);
+
+    // Check if we're using local data or API data
+    const teamSelect = document.getElementById('team-select');
+    const selectedOption = teamSelect.querySelector(`option[value="${teamId}"]`);
+    
+    // If this is local data (no API), use the local statistics
+    if (selectedOption && selectedOption.dataset.isLocal === 'true') {
+        console.log('Using local data for team:', teamId);
+        displayLocalTeamStats(teamId);
+        return;
+    }
+    
+    // Try to get API data from dropdown
+    if (selectedOption && selectedOption.dataset.standing) {
+        try {
+            const standing = JSON.parse(selectedOption.dataset.standing);
+            console.log('Standing data:', standing);
+            displayPLTeamStats(standing);
+            return;
+        } catch (e) {
+            console.error('Error parsing standing data:', e);
+        }
+    }
+    
+    console.log('No data found, using local fallback');
+    displayLocalTeamStats(teamId);
+}
+
+function displayPLTeamStats(standing) {
+    const container = document.getElementById('team-stats-display');
+    if (!container) return;
+
+    const teamName = standing.team_name;
+    const position = standing.position;
+    const points = standing.points;
+    const played = standing.games_played;
+    const wins = standing.won;
+    const draws = standing.draw;
+    const losses = standing.lost;
+    const goalDifference = standing.goal_difference;
+
+    const winRate = played > 0 ? ((wins / played) * 100).toFixed(1) : '0.0';
+
+    // Display HTML
+    container.innerHTML = `
+        <div class="mb-3">
+            <strong style="font-size: 16px;">${teamName}</strong>
+            <div class="mt-2">
+                <small class="text-muted">📊 ${played} mérkőzés | 🏆 ${position}. hely | ⭐ ${points} pont</small>
+            </div>
+        </div>
+
+        <!-- Overall Record -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <small><strong>📈 Összesített Eredmények</strong></small>
+            </div>
+            <div class="d-flex justify-content-around text-center">
+                <div>
+                    <div style="font-size: 20px; font-weight: bold; color: #1cc88a;">${wins}</div>
+                    <small class="text-muted">Győzelem</small>
+                </div>
+                <div>
+                    <div style="font-size: 20px; font-weight: bold; color: #f6c23e;">${draws}</div>
+                    <small class="text-muted">Döntetlen</small>
+                </div>
+                <div>
+                    <div style="font-size: 20px; font-weight: bold; color: #e74a3b;">${losses}</div>
+                    <small class="text-muted">Vereség</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Win Rate Progress -->
+        <div class="mb-3">
+            <small><strong>Győzelmi Arány</strong></small>
+            <div class="progress mt-1" style="height: 25px;">
+                <div class="progress-bar bg-success" style="width: ${winRate}%">
+                    <strong>${winRate}%</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goal Difference -->
+        <div class="text-center p-2 bg-dark rounded">
+            <small class="text-muted">Gólkülönbség</small>
+            <div style="font-size: 22px; font-weight: bold; color: ${goalDifference > 0 ? '#1cc88a' : goalDifference < 0 ? '#e74a3b' : '#f6c23e'};">
+                ${goalDifference > 0 ? '+' : ''}${goalDifference}
+            </div>
+        </div>
+
+        <div class="mt-3 text-center">
+            <small class="text-muted">📡 Live data from Premier League</small>
+        </div>
+    `;
+}
+
+function displayLocalTeamStats(teamName) {
+    const container = document.getElementById('team-stats-display');
+    if (!container) return;
+
+    // Calculate team statistics from local rawData
     const teamMatches = rawData.filter(match => 
         match.HomeTeam === teamName || match.AwayTeam === teamName
     );
@@ -1828,6 +2017,7 @@ function displayTeamStats(teamName) {
     let awayWins = 0, awayDraws = 0, awayLosses = 0;
     let goalsScored = 0, goalsConceded = 0;
     let totalHomeMatches = 0, totalAwayMatches = 0;
+    let recentResults = [];
 
     teamMatches.forEach(match => {
         const isHome = match.HomeTeam === teamName;
@@ -1836,16 +2026,30 @@ function displayTeamStats(teamName) {
             totalHomeMatches++;
             goalsScored += match.FTHG;
             goalsConceded += match.FTAG;
-            if (match.FTR === 'H') homeWins++;
-            else if (match.FTR === 'D') homeDraws++;
-            else homeLosses++;
+            if (match.FTR === 'H') {
+                homeWins++;
+                recentResults.push('W');
+            } else if (match.FTR === 'D') {
+                homeDraws++;
+                recentResults.push('D');
+            } else {
+                homeLosses++;
+                recentResults.push('L');
+            }
         } else {
             totalAwayMatches++;
             goalsScored += match.FTAG;
             goalsConceded += match.FTHG;
-            if (match.FTR === 'A') awayWins++;
-            else if (match.FTR === 'D') awayDraws++;
-            else awayLosses++;
+            if (match.FTR === 'A') {
+                awayWins++;
+                recentResults.push('W');
+            } else if (match.FTR === 'D') {
+                awayDraws++;
+                recentResults.push('D');
+            } else {
+                awayLosses++;
+                recentResults.push('L');
+            }
         }
     });
 
@@ -1856,13 +2060,35 @@ function displayTeamStats(teamName) {
     const winRate = ((totalWins / totalMatches) * 100).toFixed(1);
     const avgGoalsScored = (goalsScored / totalMatches).toFixed(2);
     const avgGoalsConceded = (goalsConceded / totalMatches).toFixed(2);
+    const goalDifference = (goalsScored - goalsConceded);
+
+    // Recent form (last 5 matches)
+    const recentForm = recentResults.slice(-5).reverse().map(r => {
+        if (r === 'W') return '🟢';
+        if (r === 'D') return '🟡';
+        if (r === 'L') return '🔴';
+        return '⚪';
+    }).join('');
 
     // Display HTML
     container.innerHTML = `
         <div class="mb-3">
             <strong style="font-size: 16px;">${teamName}</strong>
-            <div class="mt-2"><small class="text-muted">📊 ${totalMatches} mérkőzés elemezve</small></div>
+            <div class="mt-2">
+                <small class="text-muted">📊 ${totalMatches} mérkőzés</small>
+            </div>
         </div>
+
+        <!-- Recent Form -->
+        ${recentForm ? `
+        <div class="mb-3">
+            <small><strong>📊 Legutóbbi forma</strong></small>
+            <div class="mt-1" style="font-size: 24px; letter-spacing: 2px;">
+                ${recentForm}
+            </div>
+            <small class="text-muted">Legutóbbi ${Math.min(5, recentResults.length)} meccs</small>
+        </div>
+        ` : ''}
 
         <!-- Overall Record -->
         <div class="mb-3">
@@ -1934,9 +2160,9 @@ function displayTeamStats(teamName) {
 
         <!-- Goal Difference -->
         <div class="text-center p-2 bg-dark rounded">
-            <small class="text-muted">Gólkülönbség per meccs</small>
-            <div style="font-size: 22px; font-weight: bold; color: ${(avgGoalsScored - avgGoalsConceded) > 0 ? '#1cc88a' : '#e74a3b'};">
-                ${(avgGoalsScored - avgGoalsConceded) > 0 ? '+' : ''}${(avgGoalsScored - avgGoalsConceded).toFixed(2)}
+            <small class="text-muted">Gólkülönbség</small>
+            <div style="font-size: 22px; font-weight: bold; color: ${goalDifference > 0 ? '#1cc88a' : goalDifference < 0 ? '#e74a3b' : '#f6c23e'};">
+                ${goalDifference > 0 ? '+' : ''}${goalDifference}
             </div>
         </div>
     `;
