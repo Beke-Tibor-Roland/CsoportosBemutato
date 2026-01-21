@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogadóirodai Margin - Labdarúgás Fogadási Elemzések</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark-custom sticky-top">
+        <div class="container-fluid px-3">
+            <div class="navbar-brand-section">
+                <a href="index.html" class="navbar-brand mb-0 h1">⚽ LABDARÚGÁS FOGADÁSI ELEMZÉSEK</a>
+            </div>
+            <div class="nav-actions">
+                <span class="badge bg-warning text-dark">⚠️ Csak Oktatási Célra</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <aside class="sidebar-left">
+            <div class="sidebar-header">
+                <a href="index.html" class="btn btn-sm btn-success w-100 mb-2">🏠 FŐOLDAL</a>
+            </div>
+            
+            <div class="leagues-list">
+                <div class="section-divider">ELEMZÉSI OLDALAK</div>
+                
+                <a href="odds-accuracy.html" class="league-item">
+                    <div class="league-country">
+                        <span>📊 Odds Pontosság</span>
+                    </div>
+                </a>
+                <a href="margins.html" class="league-item active">
+                    <div class="league-country">
+                        <span>📈 Margin Elemzés</span>
+                    </div>
+                </a>
+                <a href="win-rate.html" class="league-item">
+                    <div class="league-country">
+                        <span>🔥 Győzelmi Arány Hőtérkép</span>
+                    </div>
+                </a>
+                <a href="strategy.html" class="league-item">
+                    <div class="league-country">
+                        <span>💰 Stratégia Szimulátor</span>
+                    </div>
+                </a>
+                <a href="home-advantage.html" class="league-item">
+                    <div class="league-country">
+                        <span>🏠 Hazai Előny</span>
+                    </div>
+                </a>
+                <a href="league-comparison.html" class="league-item">
+                    <div class="league-country">
+                        <span>⚽ Bajnokság Összehasonlítás</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <main class="content-middle">
+            <div class="data-card mb-3">
+                <div class="data-card-header">
+                    <h4>� ÉLŐ Mérkőzések - Fogadóirodai Margin Elemzés</h4>
+                    <button class="btn btn-sm btn-outline-success" onclick="refreshLiveData()">🔄 Frissítés</button>
+                </div>
+                <div class="data-card-body">
+                    <div class="analysis-description">
+                        <h5>Élő és Közelgő Mérkőzések Marginjának Elemzése</h5>
+                        <p>
+                            Ez az oldal <strong>élő adatokat</strong> mutat az aktuális és közelgő mérkőzésekről. 
+                            A fogadóirodai margin (overround) a fogadóiroda beépített profitját jelenti.
+                        </p>
+                        
+                        <div id="live-stats" class="alert alert-info">
+                            <strong>📊 Adatok betöltése...</strong>
+                        </div>
+
+                        <h6>Mit látsz itt:</h6>
+                        <ul>
+                            <li><strong>Több Bookmaker:</strong> Összehasonlítjuk a különböző fogadóirodák margin-jait</li>
+                            <li><strong>Margin Változás:</strong> Láthatod melyik fogadóiroda kínál jobb értéket</li>
+                            <li><strong>Élő Frissítés:</strong> Az adatok az API lekérdezés idején érvényesek</li>
+                        </ul>
+
+                        <div class="alert alert-warning mt-3">
+                            <strong>⚠️ Fontos:</strong> Alacsonyabb margin = Jobb érték a fogadók számára!
+                            Keresd a legalacsonyabb margin-ú fogadóirodákat a legjobb odds-okért.
+                        </div>
+                    </div>
+
+                    <div id="viz2" class="chart-area"></div>
+                    
+                    <div id="matches-list" class="mt-4"></div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="stats-widget mb-3">
+                <div class="widget-simple-header">� ÉLŐ Státusz</div>
+                <div class="method-content">
+                    <div class="metric-item">
+                        <div class="metric-label">Utolsó frissítés:</div>
+                        <div class="metric-value" id="last-update">-</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Élő mérkőzések:</div>
+                        <div class="metric-value text-danger" id="live-count">0</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Közelgő (48h):</div>
+                        <div class="metric-value text-warning" id="upcoming-count">0</div>
+                    </div>
+                    
+                    <button class="btn btn-sm btn-primary w-100 mt-3" onclick="refreshLiveData()">
+                        🔄 Adatok frissítése
+                    </button>
+                    
+                    <div class="alert alert-info mt-3 small">
+                        <strong>💡 Tipp:</strong> Frissítsd az adatokat 15-30 percenként az aktuális odds-okért!
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-widget mb-3">
+                <div class="widget-simple-header">📚 Módszertan</div>
+                <div class="method-content">
+                    <h6>Margin Számítás</h6>
+                    <code>
+                        Margin = (1/H + 1/D + 1/A - 1) × 100%
+                    </code>
+                    
+                    <p class="mt-3"><strong>Példa:</strong></p>
+                    <p>Hazai: 2.00 (50%)<br>
+                       Döntetlen: 3.50 (28.6%)<br>
+                       Vendég: 3.50 (28.6%)</p>
+                    <p><strong>Margin: 7.2%</strong></p>
+
+                    <div class="alert alert-success mt-3 small">
+                        <strong>✅ Jó margin:</strong> &lt; 5%<br>
+                        <strong>⚠️ Átlagos:</strong> 5-8%<br>
+                        <strong>❌ Magas:</strong> &gt; 8%
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-widget">
+                <div class="widget-simple-header">📊 Statisztikák</div>
+                <div class="metrics-content">
+                    <div class="metric-item">
+                        <div class="metric-label">Átlag Margin</div>
+                        <div class="metric-value" id="avg-margin">-</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Legjobb Margin</div>
+                        <div class="metric-value text-success" id="min-margin">-</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Legrosszabb Margin</div>
+                        <div class="metric-value text-danger" id="max-margin">-</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        let liveMatchesData = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLiveMatches();
+        });
+        
+        async function loadLiveMatches() {
+            try {
+                console.log('📡 Élő mérkőzések betöltése...');
+                const response = await fetch('data/live_matches.json');
+                
+                if (!response.ok) {
+                    throw new Error('Nincs élő adat - futtasd a fetch_live_matches.py scriptet!');
+                }
+                
+                liveMatchesData = await response.json();
+                console.log(`✅ ${liveMatchesData.total_matches} élő/közelgő mérkőzés betöltve`);
+                
+                updateLiveStats();
+                createLiveViz2();
+                displayMatchesList();
+                
+            } catch (error) {
+                console.error('❌ Hiba:', error);
+                document.getElementById('live-stats').innerHTML = `
+                    <strong>⚠️ Nincs élő adat!</strong><br>
+                    <small>Futtasd: <code>python fetch_live_matches.py</code></small>
+                `;
+                document.getElementById('viz2').innerHTML = `
+                    <div class="loading">
+                        <p>Futtasd a <code>fetch_live_matches.py</code> scriptet az élő adatokért!</p>
+                        <p><code>python fetch_live_matches.py</code></p>
+                    </div>
+                `;
+            }
+        }
+        
+        function updateLiveStats() {
+            if (!liveMatchesData) return;
+            
+            const matches = liveMatchesData.matches;
+            const liveCount = matches.filter(m => m.status.includes('🔴')).length;
+            const upcomingCount = matches.length - liveCount;
+            
+            // Margin statisztikák
+            const margins = matches.map(m => m.avg_margin);
+            const avgMargin = (margins.reduce((a, b) => a + b, 0) / margins.length).toFixed(2);
+            const minMargin = Math.min(...margins).toFixed(2);
+            const maxMargin = Math.max(...margins).toFixed(2);
+            
+            document.getElementById('last-update').textContent = new Date(liveMatchesData.updated).toLocaleString('hu-HU');
+            document.getElementById('live-count').textContent = liveCount;
+            document.getElementById('upcoming-count').textContent = upcomingCount;
+            document.getElementById('avg-margin').textContent = avgMargin + '%';
+            document.getElementById('min-margin').textContent = minMargin + '%';
+            document.getElementById('max-margin').textContent = maxMargin + '%';
+            
+            document.getElementById('live-stats').innerHTML = `
+                <strong>📊 ${matches.length} mérkőzés betöltve</strong><br>
+                <small>Utoljára frissítve: ${new Date(liveMatchesData.updated).toLocaleString('hu-HU')}</small><br>
+                <small>🔴 ${liveCount} élő | ⏰ ${upcomingCount} közelgő</small>
+            `;
+        }
+        
+        function createLiveViz2() {
+            // Használjuk az új createLiveMarginChart függvényt élő adatokkal
+            if (liveMatchesData && typeof window.createLiveMarginChart === 'function') {
+                window.createLiveMarginChart(liveMatchesData);
+            } else {
+                console.warn('Nincs élő adat vagy createLiveMarginChart nem található');
+                document.getElementById('viz2').innerHTML = `
+                    <div class="loading">
+                        <p>⚠️ Futtasd a scriptet az élő adatokért:</p>
+                        <p><code>python fetch_live_matches.py</code></p>
+                    </div>
+                `;
+            }
+        }
+        
+        function displayMatchesList() {
+            if (!liveMatchesData) return;
+            
+            const container = document.getElementById('matches-list');
+            const matches = liveMatchesData.matches;
+            
+            let html = '<h5>📋 Mérkőzések listája</h5>';
+            html += '<div class="table-responsive"><table class="table table-sm table-dark table-hover">';
+            html += '<thead><tr><th>Státusz</th><th>Liga</th><th>Mérkőzés</th><th>Bookmakers</th><th>Átlag Margin</th></tr></thead><tbody>';
+            
+            matches.forEach(match => {
+                html += `<tr>
+                    <td>${match.status}</td>
+                    <td><small>${match.league}</small></td>
+                    <td><strong>${match.home_team}</strong> vs <strong>${match.away_team}</strong></td>
+                    <td><small>${match.num_bookmakers} iroda</small></td>
+                    <td><span class="badge ${match.avg_margin < 5 ? 'bg-success' : match.avg_margin < 8 ? 'bg-warning' : 'bg-danger'}">${match.avg_margin}%</span></td>
+                </tr>`;
+            });
+            
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+        }
+        
+        function refreshLiveData() {
+            document.getElementById('live-stats').innerHTML = '<strong>🔄 Frissítés...</strong>';
+            loadLiveMatches();
+        }
+    </script>
+</body>
+</html>

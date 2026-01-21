@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="hu" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Játékos Keresés - Élő Adatok</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark-custom sticky-top">
+        <div class="container-fluid px-3">
+            <div class="navbar-brand-section">
+                <a href="index.html" class="navbar-brand mb-0 h1">⚽ LABDARÚGÁS FOGADÁSI ELEMZÉSEK</a>
+            </div>
+            <div class="nav-actions">
+                <span class="badge bg-success text-white">🔴 ÉLŐ ADATOK</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <aside class="sidebar-left">
+            <div class="sidebar-header">
+                <a href="index.html" class="btn btn-sm btn-success w-100 mb-2">🏠 FŐOLDAL</a>
+            </div>
+            
+            <div class="leagues-list">
+                <div class="section-divider">ELEMZÉSI OLDALAK</div>
+                
+                <a href="odds-accuracy.html" class="league-item">
+                    <div class="league-country">
+                        <span>📊 Odds Pontosság</span>
+                    </div>
+                </a>
+                <a href="margins.html" class="league-item">
+                    <div class="league-country">
+                        <span>📈 Margin Elemzés</span>
+                    </div>
+                </a>
+                <a href="win-rate.html" class="league-item">
+                    <div class="league-country">
+                        <span>🌍 Válogatottak Térkép</span>
+                    </div>
+                </a>
+                <a href="strategy.html" class="league-item">
+                    <div class="league-country">
+                        <span>💰 Stratégia Szimulátor</span>
+                    </div>
+                </a>
+                <a href="odds-trends.html" class="league-item">
+                    <div class="league-country">
+                        <span>📉 Odds Trendek</span>
+                    </div>
+                </a>
+                <a href="comparison.html" class="league-item">
+                    <div class="league-country">
+                        <span>⚖️ Liga Összehasonlítás</span>
+                    </div>
+                </a>
+                <a href="players-search.html" class="league-item active">
+                    <div class="league-country">
+                        <span>🔍 Játékos Keresés (ÉLŐ)</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <div class="data-card">
+                <div class="data-card-header">
+                    <h4>🔍 Játékos Keresés - Élő API Adatok</h4>
+                </div>
+                <div class="data-card-body">
+                    <div class="analysis-description">
+                        <h5>Labdarúgók Élő Keresése</h5>
+                        <p>
+                            Ez az oldal élő API adatokat használ a RapidAPI Free Football Data szolgáltatásától.
+                            Keress játékosokat név szerint és tekintsd meg részletes információikat.
+                        </p>
+                        
+                        <div class="alert alert-success mt-3 mb-4">
+                            <strong>🔴 ÉLŐ ADATOK</strong> - Az adatok közvetlenül a RapidAPI-ról érkeznek valós időben!
+                        </div>
+                    </div>
+
+                    <!-- Keresési felület -->
+                    <div class="search-container mb-4">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bg-dark text-success border-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="text" 
+                                           id="playerSearchInput" 
+                                           class="form-control form-control-lg bg-dark text-white border-success" 
+                                           placeholder="Írd be a játékos nevét (pl. Messi, Ronaldo, Mbappé)..."
+                                           autocomplete="off">
+                                </div>
+                                <small class="text-muted">Minimum 2 karakter szükséges a kereséshez</small>
+                            </div>
+                            <div class="col-md-4">
+                                <button id="searchBtn" class="btn btn-success btn-lg w-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                    Keresés
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Betöltés jelző -->
+                    <div id="loadingIndicator" class="text-center py-5" style="display: none;">
+                        <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;">
+                            <span class="visually-hidden">Betöltés...</span>
+                        </div>
+                        <p class="mt-3 text-success fw-bold">Élő adatok lekérdezése...</p>
+                    </div>
+
+                    <!-- Hiba üzenet -->
+                    <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+
+                    <!-- Találatok száma -->
+                    <div id="resultCount" class="mb-3" style="display: none;"></div>
+
+                    <!-- Eredmények -->
+                    <div id="playersResults" class="row g-3"></div>
+
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="stats-widget mb-3">
+                <div class="widget-simple-header">📚 API Információ</div>
+                <div class="method-content">
+                    <h6 style="color: #1cc88a; margin-top: 15px;">🔗 Adatforrás</h6>
+                    <p style="font-size: 13px; color: #858796; margin-bottom: 10px;">
+                        <strong>Free API Live Football Data</strong><br>
+                        RapidAPI Platform
+                    </p>
+                    
+                    <h6 style="color: #1cc88a; margin-top: 15px;">⚡ Élő Adatok</h6>
+                    <p style="font-size: 13px; color: #858796; margin-bottom: 10px;">
+                        Az adatok valós időben érkeznek az API-ról minden kereséskor.
+                    </p>
+
+                    <h6 style="color: #1cc88a; margin-top: 15px;">🔑 API Funkciók</h6>
+                    <ul style="font-size: 13px; color: #858796; padding-left: 20px;">
+                        <li>Játékos keresés név alapján</li>
+                        <li>Részletes játékos profil</li>
+                        <li>Csapat információk</li>
+                        <li>Pozíció és statisztikák</li>
+                    </ul>
+
+                    <div class="alert alert-warning mt-3" style="font-size: 12px;">
+                        <strong>⚠️ Figyelem:</strong> Az API korlátozva lehet a hívások számában (rate limit).
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-widget mb-3">
+                <div class="widget-simple-header">💡 Használati Tippek</div>
+                <div class="method-content">
+                    <ul style="font-size: 13px; color: #858796; padding-left: 20px;">
+                        <li><strong>Rövid nevek:</strong> Próbálj rövidebb keresési kifejezéseket használni</li>
+                        <li><strong>Vezetéknév:</strong> A vezetéknév általában pontosabb találatokat ad</li>
+                        <li><strong>Kis/nagybetű:</strong> Nem számít a keresésben</li>
+                        <li><strong>Enter billentyű:</strong> Gyorskereséshez nyomd meg az Entert</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enter billentyű kezelése
+            document.getElementById('playerSearchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('searchBtn').click();
+                }
+            });
+
+            // Keresés gomb
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                const searchTerm = document.getElementById('playerSearchInput').value.trim();
+                if (searchTerm.length >= 2) {
+                    searchPlayers(searchTerm);
+                } else {
+                    showError('Kérlek adj meg legalább 2 karaktert a kereséshez!');
+                }
+            });
+        });
+
+        async function searchPlayers(searchTerm) {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            const resultCount = document.getElementById('resultCount');
+            const playersResults = document.getElementById('playersResults');
+
+            // UI reset
+            loadingIndicator.style.display = 'block';
+            errorMessage.style.display = 'none';
+            resultCount.style.display = 'none';
+            playersResults.innerHTML = '';
+
+            try {
+                const response = await fetch(`https://free-api-live-football-data.p.rapidapi.com/football-players-search?search=${encodeURIComponent(searchTerm)}`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Rapidapi-Key': 'b45fdc1f51msheec97557905d95ap131973jsna8c84c280bba',
+                        'X-Rapidapi-Host': 'free-api-live-football-data.p.rapidapi.com'
+                    }
+                });
+
+                loadingIndicator.style.display = 'none';
+
+                if (!response.ok) {
+                    throw new Error(`API hiba: ${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log('API válasz:', data);
+
+                // Ellenőrizzük a válasz struktúráját
+                const players = data.response || data.data || data.players || data;
+                
+                if (!players || (Array.isArray(players) && players.length === 0)) {
+                    showError(`Nincs találat a(z) "${searchTerm}" keresésre. Próbálj más nevet!`);
+                    return;
+                }
+
+                // Találatok megjelenítése
+                displayPlayers(Array.isArray(players) ? players : [players], searchTerm);
+
+            } catch (error) {
+                loadingIndicator.style.display = 'none';
+                console.error('Keresési hiba:', error);
+                showError(`Hiba történt: ${error.message}<br><small>Ellenőrizd az internetkapcsolatot vagy az API kulcsot.</small>`);
+            }
+        }
+
+        function displayPlayers(players, searchTerm) {
+            const resultCount = document.getElementById('resultCount');
+            const playersResults = document.getElementById('playersResults');
+
+            resultCount.innerHTML = `<div class="alert alert-success"><strong>✅ ${players.length} találat</strong> a(z) "<em>${searchTerm}</em>" keresésre</div>`;
+            resultCount.style.display = 'block';
+
+            players.forEach(player => {
+                const card = createPlayerCard(player);
+                playersResults.innerHTML += card;
+            });
+        }
+
+        function createPlayerCard(player) {
+            // API válasz mezőinek feldolgozása (rugalmas struktúra)
+            const name = player.name || player.player_name || player.playerName || 'Ismeretlen';
+            const team = player.team || player.club || player.current_team || 'N/A';
+            const position = player.position || player.pos || 'N/A';
+            const nationality = player.nationality || player.country || 'N/A';
+            const age = player.age || '';
+            const number = player.number || player.shirt_number || '';
+            const photo = player.photo || player.image || player.player_image || '';
+
+            return `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-dark border-success h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                ${photo ? `<img src="${photo}" alt="${name}" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover; border: 2px solid #1cc88a;">` : '<div class="rounded-circle me-3 bg-secondary d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; border: 2px solid #1cc88a;"><span style="font-size: 24px;">⚽</span></div>'}
+                                <div>
+                                    <h5 class="card-title mb-1 text-success">${name}</h5>
+                                    ${number ? `<span class="badge bg-success">#${number}</span>` : ''}
+                                </div>
+                            </div>
+                            
+                            <div class="player-info">
+                                <div class="info-row mb-2">
+                                    <span class="text-muted">🏟️ Csapat:</span>
+                                    <strong class="text-white">${team}</strong>
+                                </div>
+                                <div class="info-row mb-2">
+                                    <span class="text-muted">📍 Pozíció:</span>
+                                    <strong class="text-white">${position}</strong>
+                                </div>
+                                <div class="info-row mb-2">
+                                    <span class="text-muted">🌍 Nemzetiség:</span>
+                                    <strong class="text-white">${nationality}</strong>
+                                </div>
+                                ${age ? `<div class="info-row mb-2"><span class="text-muted">🎂 Kor:</span><strong class="text-white">${age} év</strong></div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.innerHTML = message;
+            errorMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

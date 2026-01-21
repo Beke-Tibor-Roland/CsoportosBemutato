@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyszerű Teszt</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            background: #0d1117;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #viz3 {
+            min-height: 600px;
+            background: #161b22;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        #status {
+            background: #1f2937;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 Válogatottak Hőtérkép - Egyszerű Teszt</h1>
+    <div id="viz3"></div>
+    <div id="status"></div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        
+        function log(msg) {
+            console.log(msg);
+            statusDiv.innerHTML += msg + '<br>';
+        }
+        
+        log('🚀 Oldal betöltve');
+        
+        function createSimpleHeatmap() {
+            log('📊 createSimpleHeatmap kezdés...');
+            
+            const container = d3.select('#viz3');
+            container.html('');
+            
+            log('📂 JSON betöltése: data/team_stats.json');
+            
+            d3.json('data/team_stats.json')
+                .then(data => {
+                    log('✅ JSON sikeresen betöltve!');
+                    log('📋 Csapatok száma: ' + Object.keys(data).length);
+                    
+                    // Konvertálás tömbé
+                    const teams = Object.values(data)
+                        .filter(t => t.total_matches >= 10)
+                        .sort((a, b) => b.average_goals_per_match - a.average_goals_per_match)
+                        .slice(0, 20); // TOP 20
+                    
+                    log('🏆 TOP 20 csapat kiválasztva');
+                    
+                    // Egyszerű lista
+                    const list = container.append('div')
+                        .style('color', '#fff');
+                    
+                    list.append('h3').text('TOP 20 Válogatott (min. 10 meccs)');
+                    
+                    const ul = list.append('ul');
+                    
+                    teams.forEach((team, i) => {
+                        ul.append('li')
+                            .html(`${i+1}. <strong>${team.team_name}</strong>: 
+                                   ${team.average_goals_per_match.toFixed(2)} gól/meccs 
+                                   (${team.total_matches} meccs, ${team.total_goals} gól)`);
+                    });
+                    
+                    log('✅ Vizualizáció kész!');
+                })
+                .catch(error => {
+                    log('❌ HIBA: ' + error.message);
+                    console.error('Részletes hiba:', error);
+                });
+        }
+        
+        // Futtatás
+        setTimeout(createSimpleHeatmap, 100);
+    </script>
+</body>
+</html>

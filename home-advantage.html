@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazai Előny Elemzés - Labdarúgás Fogadási Elemzések</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark-custom sticky-top">
+        <div class="container-fluid px-3">
+            <div class="navbar-brand-section">
+                <a href="index.html" class="navbar-brand mb-0 h1">⚽ LABDARÚGÁS FOGADÁSI ELEMZÉSEK</a>
+            </div>
+            <div class="nav-actions">
+                <span class="badge bg-warning text-dark">⚠️ Csak Oktatási Célra</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <aside class="sidebar-left">
+            <div class="sidebar-header">
+                <a href="index.html" class="btn btn-sm btn-success w-100 mb-2">🏠 FŐOLDAL</a>
+            </div>
+            
+            <div class="leagues-list">
+                <div class="section-divider">ELEMZÉSI OLDALAK</div>
+                
+                <a href="odds-accuracy.html" class="league-item">
+                    <div class="league-country">
+                        <span>📊 Odds Pontosság</span>
+                    </div>
+                </a>
+                <a href="margins.html" class="league-item">
+                    <div class="league-country">
+                        <span>📈 Margin Elemzés</span>
+                    </div>
+                </a>
+                <a href="win-rate.html" class="league-item">
+                    <div class="league-country">
+                        <span>🔥 Győzelmi Arány Hőtérkép</span>
+                    </div>
+                </a>
+                <a href="strategy.html" class="league-item">
+                    <div class="league-country">
+                        <span>💰 Stratégia Szimulátor</span>
+                    </div>
+                </a>
+                <a href="home-advantage.html" class="league-item active">
+                    <div class="league-country">
+                        <span>🏠 Hazai Előny</span>
+                    </div>
+                </a>
+                <a href="league-comparison.html" class="league-item">
+                    <div class="league-country">
+                        <span>⚽ Bajnokság Összehasonlítás</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <main class="content-middle">
+            <div class="data-card mb-3">
+                <div class="data-card-header">
+                    <h4>🏠 Hazai Előny: Piaci Várakozások vs Valóság</h4>
+                </div>
+                <div class="data-card-body">
+                    <div class="analysis-description">
+                        <h5>Válogatottak Hazai Előny Elemzése</h5>
+                        <p>
+                            Válaszd ki a válogatottat és nézd meg a hazai és idegenben játszott mérkőzéseinek statisztikáit.
+                            Az adatok nemzetközi válogatott mérkőzéseket tartalmaznak 2019-től napjainkig.
+                        </p>
+                        
+                        <!-- Legördülő lista -->
+                        <div class="mb-4">
+                            <label for="teamSelect" class="form-label"><strong>🔍 Válogatott választása:</strong></label>
+                            <select class="form-select" id="teamSelect">
+                                <option value="">-- Válassz válogatottat --</option>
+                            </select>
+                            <small class="form-text text-muted">Válassz egy válogatottat a listából</small>
+                        </div>
+
+                        <!-- Kiválasztott csapat statisztikái -->
+                        <div id="teamStats" class="mt-4" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="alert alert-success">
+                                        <h6>🏠 Hazai Mérkőzések</h6>
+                                        <div class="row mt-2">
+                                            <div class="col-6"><strong>Mérkőzések:</strong> <span id="homeMatches">-</span></div>
+                                            <div class="col-6"><strong>Győzelmi Arány:</strong> <span id="homeWinRate">-</span></div>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col-4"><span class="badge bg-success" id="homeWins">0</span> Győzelem</div>
+                                            <div class="col-4"><span class="badge bg-warning" id="homeDraws">0</span> Döntetlen</div>
+                                            <div class="col-4"><span class="badge bg-danger" id="homeLosses">0</span> Vereség</div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6"><strong>Rúgott:</strong> <span id="homeGoalsFor">-</span></div>
+                                            <div class="col-6"><strong>Kapott:</strong> <span id="homeGoalsAgainst">-</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="alert alert-info">
+                                        <h6>✈️ Vendég Mérkőzések</h6>
+                                        <div class="row mt-2">
+                                            <div class="col-6"><strong>Mérkőzések:</strong> <span id="awayMatches">-</span></div>
+                                            <div class="col-6"><strong>Győzelmi Arány:</strong> <span id="awayWinRate">-</span></div>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col-4"><span class="badge bg-success" id="awayWins">0</span> Győzelem</div>
+                                            <div class="col-4"><span class="badge bg-warning" id="awayDraws">0</span> Döntetlen</div>
+                                            <div class="col-4"><span class="badge bg-danger" id="awayLosses">0</span> Vereség</div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6"><strong>Rúgott:</strong> <span id="awayGoalsFor">-</span></div>
+                                            <div class="col-6"><strong>Kapott:</strong> <span id="awayGoalsAgainst">-</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="viz5" class="chart-area mt-4"></div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="stats-widget mb-3">
+                <div class="widget-simple-header"> Statisztikák</div>
+                <div class="metrics-content">
+                    <div class="metric-item">
+                        <div class="metric-label">Összes Mérkőzés</div>
+                        <div class="metric-value" id="total-matches">-</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Válogatottak Száma</div>
+                        <div class="metric-value" id="total-teams">-</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Időszak</div>
+                        <div class="metric-value">2019 - 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-widget">
+                <div class="widget-simple-header"> Adatforrás</div>
+                <div class="method-content">
+                    <h6>Adatbázis</h6>
+                    <p>Nemzetközi válogatott mérkőzések 2019-től napjainkig</p>
+                    
+                    <h6>Számítások</h6>
+                    <p><strong>Hazai Győzelmi Arány:</strong></p>
+                    <code>Hazai_Győzelmek / Hazai_Mérkőzések × 100%</code>
+                    
+                    <p class="mt-2"><strong>Vendég Győzelmi Arány:</strong></p>
+                    <code>Vendég_Győzelmek / Vendég_Mérkőzések × 100%</code>
+
+                    <p class="mt-2"><strong>Hazai Előny:</strong></p>
+                    <code>Hazai_Győzelmi_Arány - Vendég_Győzelmi_Arány</code>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        let matchData = [];
+        let teamStats = {};
+
+        // CSV betöltése és feldolgozása
+        async function loadMatchData() {
+            try {
+                console.log(' Adatok betöltése kezdődik...');
+                const response = await fetch('data/adatokfoci.csv');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP hiba! Státusz: ${response.status}`);
+                }
+                
+                const csvText = await response.text();
+                const lines = csvText.trim().split('\n');
+                
+                // Kihagyjuk az első sort (fejléc)
+                const dataLines = lines.slice(1);
+                
+                matchData = dataLines.map(line => {
+                    const parts = line.split(',');
+                    return {
+                        date: parts[0]?.trim(),
+                        home: parts[1]?.trim(),
+                        away: parts[2]?.trim(),
+                        homeScore: parseInt(parts[3]),
+                        awayScore: parseInt(parts[4]),
+                        tournament: parts[5]?.trim(),
+                        neutral: parts[6]?.trim() === 'TRUE'
+                    };
+                }).filter(match => match.home && match.away && !isNaN(match.homeScore) && !isNaN(match.awayScore));
+
+                console.log(' Feldolgozott mérkőzések:', matchData.length);
+                console.log(' Első mérkőzés:', matchData[0]);
+                
+                calculateTeamStats();
+                console.log(' Csapatok száma:', Object.keys(teamStats).length);
+                console.log(' Első 10 csapat:', Object.keys(teamStats).sort().slice(0, 10));
+                
+                updateOverallStats();
+                populateTeamSelect();
+                
+                console.log(' Minden kész! Lista elemek száma:', document.getElementById('teamSelect').options.length);
+            } catch (error) {
+                console.error(' Hiba az adatok betöltésénél:', error);
+            }
+        }
+
+        // Csapatok statisztikáinak kiszámítása (hazai és vendég külön)
+        function calculateTeamStats() {
+            teamStats = {};
+
+            matchData.forEach(match => {
+                if (!match.home || !match.away || match.neutral) return; // Kihagyjuk a semleges pályás meccseket
+
+                // Hazai csapat hazai statisztikái
+                if (!teamStats[match.home]) {
+                    teamStats[match.home] = {
+                        home: { matches: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 },
+                        away: { matches: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 }
+                    };
+                }
+                teamStats[match.home].home.matches++;
+                teamStats[match.home].home.goalsFor += match.homeScore;
+                teamStats[match.home].home.goalsAgainst += match.awayScore;
+
+                if (match.homeScore > match.awayScore) {
+                    teamStats[match.home].home.wins++;
+                } else if (match.homeScore === match.awayScore) {
+                    teamStats[match.home].home.draws++;
+                } else {
+                    teamStats[match.home].home.losses++;
+                }
+
+                // Vendég csapat vendég statisztikái
+                if (!teamStats[match.away]) {
+                    teamStats[match.away] = {
+                        home: { matches: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 },
+                        away: { matches: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 }
+                    };
+                }
+                teamStats[match.away].away.matches++;
+                teamStats[match.away].away.goalsFor += match.awayScore;
+                teamStats[match.away].away.goalsAgainst += match.homeScore;
+
+                if (match.awayScore > match.homeScore) {
+                    teamStats[match.away].away.wins++;
+                } else if (match.homeScore === match.awayScore) {
+                    teamStats[match.away].away.draws++;
+                } else {
+                    teamStats[match.away].away.losses++;
+                }
+            });
+        }
+
+        // Oldal betöltése
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log(' Oldal betöltve, adatok lekérése indul...');
+            loadMatchData();
+
+            const teamSelect = document.getElementById('teamSelect');
+
+            teamSelect.addEventListener('change', function() {
+                const teamName = this.value;
+                if (teamName) {
+                    showTeamStats(teamName);
+                } else {
+                    document.getElementById('teamStats').style.display = 'none';
+                    d3.select('#viz5').selectAll('*').remove();
+                }
+            });
+        });
+
+        // Legördülő lista feltöltése
+        function populateTeamSelect() {
+            const teamSelect = document.getElementById('teamSelect');
+            const teams = Object.keys(teamStats).sort();
+
+            console.log(' Legördülő lista feltöltése kezdődik...');
+            console.log(' Csapatok száma:', teams.length);
+            console.log(' Első 10 csapat:', teams.slice(0, 10));
+
+            teamSelect.innerHTML = '<option value="">-- Válassz válogatottat --</option>';
+
+            teams.forEach((team, index) => {
+                const option = document.createElement('option');
+                option.value = team;
+                option.textContent = team;
+                teamSelect.appendChild(option);
+                
+                if (index < 5) {
+                    console.log(`   Hozzáadva: ${team}`);
+                }
+            });
+
+            console.log(' Legördülő lista feltöltve:', teamSelect.options.length, 'opció');
+        }
+
+        // Csapat statisztikáinak megjelenítése
+        function showTeamStats(teamName) {
+            const stats = teamStats[teamName];
+            if (!stats) return;
+
+            const homeWinRate = stats.home.matches > 0 ? ((stats.home.wins / stats.home.matches) * 100).toFixed(1) : '0.0';
+            const awayWinRate = stats.away.matches > 0 ? ((stats.away.wins / stats.away.matches) * 100).toFixed(1) : '0.0';
+
+            document.getElementById('teamStats').style.display = 'block';
+            
+            // Hazai statisztikák
+            document.getElementById('homeMatches').textContent = stats.home.matches;
+            document.getElementById('homeWinRate').textContent = `${homeWinRate}%`;
+            document.getElementById('homeWins').textContent = stats.home.wins;
+            document.getElementById('homeDraws').textContent = stats.home.draws;
+            document.getElementById('homeLosses').textContent = stats.home.losses;
+            document.getElementById('homeGoalsFor').textContent = stats.home.goalsFor;
+            document.getElementById('homeGoalsAgainst').textContent = stats.home.goalsAgainst;
+
+            // Vendég statisztikák
+            document.getElementById('awayMatches').textContent = stats.away.matches;
+            document.getElementById('awayWinRate').textContent = `${awayWinRate}%`;
+            document.getElementById('awayWins').textContent = stats.away.wins;
+            document.getElementById('awayDraws').textContent = stats.away.draws;
+            document.getElementById('awayLosses').textContent = stats.away.losses;
+            document.getElementById('awayGoalsFor').textContent = stats.away.goalsFor;
+            document.getElementById('awayGoalsAgainst').textContent = stats.away.goalsAgainst;
+
+            createComparisonChart(teamName, stats);
+        }
+
+        // Összesített statisztikák
+        function updateOverallStats() {
+            const nonNeutralMatches = matchData.filter(m => !m.neutral);
+            document.getElementById('total-matches').textContent = nonNeutralMatches.length;
+            document.getElementById('total-teams').textContent = Object.keys(teamStats).length;
+        }
+
+        // Összehasonlító diagram
+        function createComparisonChart(teamName, stats) {
+            const viz = d3.select('#viz5');
+            viz.selectAll('*').remove();
+
+            const data = [
+                { label: 'Hazai Győzelem', value: stats.home.wins, color: '#28a745', type: 'home' },
+                { label: 'Hazai Döntetlen', value: stats.home.draws, color: '#ffc107', type: 'home' },
+                { label: 'Hazai Vereség', value: stats.home.losses, color: '#dc3545', type: 'home' },
+                { label: 'Vendég Győzelem', value: stats.away.wins, color: '#17a2b8', type: 'away' },
+                { label: 'Vendég Döntetlen', value: stats.away.draws, color: '#fd7e14', type: 'away' },
+                { label: 'Vendég Vereség', value: stats.away.losses, color: '#6c757d', type: 'away' }
+            ];
+
+            const width = viz.node().getBoundingClientRect().width;
+            const height = 400;
+            const margin = { top: 40, right: 30, bottom: 100, left: 60 };
+
+            const svg = viz.append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const x = d3.scaleBand()
+                .domain(data.map(d => d.label))
+                .range([0, chartWidth])
+                .padding(0.2);
+
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.value)])
+                .nice()
+                .range([chartHeight, 0]);
+
+            g.selectAll('.bar')
+                .data(data)
+                .enter()
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('x', d => x(d.label))
+                .attr('y', d => y(d.value))
+                .attr('width', x.bandwidth())
+                .attr('height', d => chartHeight - y(d.value))
+                .attr('fill', d => d.color);
+
+            g.selectAll('.label')
+                .data(data)
+                .enter()
+                .append('text')
+                .attr('x', d => x(d.label) + x.bandwidth() / 2)
+                .attr('y', d => y(d.value) - 5)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#fff')
+                .style('font-size', '14px')
+                .style('font-weight', 'bold')
+                .text(d => d.value);
+
+            g.append('g')
+                .attr('transform', `translate(0,${chartHeight + 5})`)
+                .call(d3.axisBottom(x))
+                .selectAll('text')
+                .style('fill', '#fff')
+                .style('text-anchor', 'end')
+                .attr('dx', '-.8em')
+                .attr('dy', '.15em')
+                .attr('transform', 'rotate(-45)');
+            
+            g.selectAll('.domain').remove();
+            g.selectAll('.tick line').remove();
+
+            g.append('g')
+                .call(d3.axisLeft(y))
+                .selectAll('text')
+                .style('fill', '#fff');
+
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', 20)
+                .attr('text-anchor', 'middle')
+                .style('font-size', '18px')
+                .style('font-weight', 'bold')
+                .style('fill', '#fff')
+                .text(`${teamName} - Hazai vs Vendég Teljesítmény`);
+        }
+
+        function createAllVisualizations() {
+            // Vizualizáció csak a választás után
+        }
+    </script>
+</body>
+</html>
